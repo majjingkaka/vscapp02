@@ -136,13 +136,12 @@ public class WebSecurityConfig{
     //https://bamdule.tistory.com/53
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        CustomLoginSuccessHandler handler = new CustomLoginSuccessHandler();
+        //CustomLoginSuccessHandler handler = new CustomLoginSuccessHandler();
         //handler.addIgnoreUrl("/loginProcess");
         //handler.addIgnoreUrl("/login");
         //handler.addIgnoreUrl("/login_fail");
 
         //CustomLoginFailHandler faileHandler =  new CustomLoginFailHandler();
-        try{
         //http
         //    .authorizeHttpRequests((authz) -> authz
         //        .anyRequest().authenticated()
@@ -165,9 +164,9 @@ public class WebSecurityConfig{
             //.defaultSuccessUrl("/home")
             //.defaultSuccessUrl("/",true)
             .defaultSuccessUrl("/")
-            .failureUrl("/login") //로그인 실패인 경우 호출할 주소 지정 //Fail?error=true
+            .failureUrl("/login"); //로그인 실패인 경우 호출할 주소 지정 //Fail?error=true
             //.failureHandler(faileHandler) //https://doing7.tistory.com/16
-            .successHandler(handler);
+            //.successHandler(handler);
             //.permitAll();
 
         //http.cors().and();
@@ -198,16 +197,17 @@ public class WebSecurityConfig{
             //.ignoringAntMatchers("/paygate/*");
         
 
-	 	http.logout()
-	 		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-	 		.logoutSuccessUrl("/")
-	 		.invalidateHttpSession(true);
+	 	http.logout()//로그아웃설정
+	 		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))//로그아웃키워드
+	 		.logoutSuccessUrl("/")//로그아웃이후 이동경로
+	 		.invalidateHttpSession(true); //세션삭제여부
             //.permitAll();
         
         //권한이 없는 사용자가 접근했을 경우 이동할 경로를 지정합니다.
         http.exceptionHandling()
-            .accessDeniedPage("/denied");
-            
+            //.accessDeniedPage("/denied");
+            .accessDeniedPage("/");
+
         http.rememberMe()
             .key("key")
             .tokenValiditySeconds(1000)
@@ -223,15 +223,11 @@ public class WebSecurityConfig{
         //http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.sessionManagement() //중복로그인 관리
-            .maximumSessions(100) //100개 허용 중복 로그인 가능한 세션 수 1로 지정해야, 중복 로그인을 방지할 수 있다.
-            .expiredUrl("/") //처리 url
+            .maximumSessions(1) //100개 허용 중복 로그인 가능한 세션 수 1로 지정해야, 중복 로그인을 방지할 수 있다. // 최대 접속수를 1개로 제한한다.
+            .expiredUrl("/login?expire=true") //처리 url // 세션이 제한 되었을 경우 리다이렉트 할 URL
             .maxSessionsPreventsLogin(true); //두번째 로그인한 사람은 거부하겠다
             //.sessionRegistry(sessionRegistry); //중복로그인 체크
 
-        
-        }catch(Exception e){
-            e.printStackTrace();
-        }
 
         return http.build();
     }

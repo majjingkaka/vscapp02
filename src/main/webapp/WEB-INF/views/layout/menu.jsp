@@ -184,18 +184,18 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/login" class="nav-link">
+                <a href="/reference" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>자료실</p>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a href="pages/UI/icons.html" class="nav-link">
+               <li class="nav-item">
+                <a href="login" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Icons</p>
+                  <p>login Test</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!--<li class="nav-item">
                 <a href="pages/UI/buttons.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Buttons</p>
