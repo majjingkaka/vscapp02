@@ -1,0 +1,9 @@
+spring :
+    web:
+        resources:
+            static-locations: META-INF:/resources, classpath:/resources, classpath:/static, classpath:/templates
+
+server:
+    port: 80
+    
+

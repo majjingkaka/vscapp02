@@ -14,7 +14,7 @@ public class CenterController{
     
     @RequestMapping(path = "/reference", method = RequestMethod.GET)
     public String reference(HttpServletRequest request, Model model){
-        logger.info("### MainController reference call...");
+        logger.debug("### MainController reference call...");
         model.addAttribute("noticeHeaderList", "11");
         return "center/reference";
     }

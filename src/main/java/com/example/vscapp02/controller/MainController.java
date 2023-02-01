@@ -14,7 +14,7 @@ public class MainController{
 
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String main(HttpServletRequest request, Model model){
-        logger.info("### MainController main call...");
+        logger.debug("### MainController main call...");
         model.addAttribute("noticeHeaderList", "11");
 
         return "home";
@@ -30,7 +30,7 @@ public class MainController{
 
         //logger.trace("Trace");
         //logger.debug("Debug");
-        //logger.info("Info");
+        //logger.debug("Info");
         //logger.warn("Warn");
         //logger.error("Error");
 
