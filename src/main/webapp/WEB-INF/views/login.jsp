@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 
 <style>
 	#loginForm{
@@ -77,9 +77,3 @@ ccc
 </security:authorize>
 
 
-<!-- <security:authentication var="user" property="principal"/> -->
-<p>principal : <security:authentication property="principal" /></p>
-<p>MemberVO : <security:authentication property="principal.member"/></p>
-<p>사용자 이름 : <security:authentication property="principal.member.userName"/></p>
-<p>사용자 아이디 : <security:authentication property="principal.username"/></p>
-<p>사용자 권한 리스트 : <security:authentication property="principal.member.authList"/></p>
