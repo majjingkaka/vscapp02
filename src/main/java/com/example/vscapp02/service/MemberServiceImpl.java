@@ -1,5 +1,6 @@
 package com.example.vscapp02.service;
 
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
@@ -262,6 +263,7 @@ public class MemberServiceImpl implements MemberService{
         Member member = memberMapper.selectMember(username);
         if(member == null) {
             throw new UsernameNotFoundException("사용자 정보가 존재하지 않습니다.");
+            //throw new IOException("this is io exception");
         }
 
         List<Role> userRoleList = memberMapper.selectMemberRole(member);

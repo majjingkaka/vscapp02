@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.config.http.SessionCreationPolicy;
+//import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 //import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -20,7 +20,7 @@ import org.springframework.security.web.context.SecurityContextPersistenceFilter
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
-import com.example.vscapp02.common.CustomLoginFailHandler;
+//import com.example.vscapp02.common.CustomLoginFailHandler;
 import com.example.vscapp02.common.CustomLoginSuccessHandler;
 //import com.example.vscapp01.Components.JwtTokenProvider;
 import com.example.vscapp02.service.MemberServiceImpl;

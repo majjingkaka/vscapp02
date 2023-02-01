@@ -45,35 +45,26 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
         String password = (String)authentication.getCredentials();
 
         //AccountContext accountContext = (AccountContext) userDetailsService.loadUserByUsername(username);
-        try{
-            SpringUser springUser = (SpringUser)userDetailsService.loadUserByUsername(username);
-            logger.debug("username : " + springUser.getUsername() + " / password : " + springUser.getPassword());
-    
-            // BcryptPasswordEncoder : BCrypt 해시 함수를 사용해 비밀번호를 암호화
-            // Argon2PasswordEncoder : Argon2 해시 함수를 사용해 비밀번호를 암호화
-            // Pbkdf2PasswordEncoder : PBKDF2 해시 함수를 사용해 비밀번호를 암호화
-            // SCryptPasswordEncoder : SCrypt 해시 함수를 사용해 비밀번호를 암호화
-    
-            
-    
-            // password 일치하지 않으면!
-            if(!passwordEncoder.matches(password, springUser.getPassword())){
-                throw new BadCredentialsException("비밀번호가 일치하지 않습니다.");
-            }
-    
-            logger.debug(">>"+username);
-            logger.debug(">>"+password);
-            logger.debug(">>"+springUser.getAuthorities());
+        SpringUser springUser = (SpringUser)userDetailsService.loadUserByUsername(username);
+        logger.debug("username : " + springUser.getUsername() + " / password : " + springUser.getPassword());
 
-            UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,password,springUser.getAuthorities());
-            authenticationToken.setDetails(springUser);
-            return authenticationToken;
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+        // BcryptPasswordEncoder : BCrypt 해시 함수를 사용해 비밀번호를 암호화
+        // Argon2PasswordEncoder : Argon2 해시 함수를 사용해 비밀번호를 암호화
+        // Pbkdf2PasswordEncoder : PBKDF2 해시 함수를 사용해 비밀번호를 암호화
+        // SCryptPasswordEncoder : SCrypt 해시 함수를 사용해 비밀번호를 암호화
         
+        // password 일치하지 않으면!
+        if(!passwordEncoder.matches(password, springUser.getPassword())){
+            throw new BadCredentialsException("비밀번호가 일치하지 않습니다.");
+        }
 
-        return null;
+        logger.debug(">>"+username);
+        logger.debug(">>"+password);
+        logger.debug(">>"+springUser.getAuthorities());
+
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(username,password,springUser.getAuthorities());
+        authenticationToken.setDetails(springUser);
+        return authenticationToken;
     }
 
     // 토큰 타입과 일치할 때 인증

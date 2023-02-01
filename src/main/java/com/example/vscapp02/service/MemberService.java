@@ -16,8 +16,8 @@ public interface MemberService extends UserDetailsService{
     //public ResponseEntity<MemberEntity> getAllUsers() throws Exception;
     public ResponseEntity<Integer> createMember(Member memberDto) throws Exception;
 
-    public Member findMemberInfoById(Long memberId);
-    public Member findMemberInfoByEmail(String email);
+    public Member findMemberInfoById(Long memberId) throws Exception;
+    public Member findMemberInfoByEmail(String email) throws Exception;
     public Member registerNewMemberAccount(Member member) throws Exception;
     
     // public JwtTokenInfo login(String memberId, String password);
