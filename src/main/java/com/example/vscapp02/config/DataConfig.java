@@ -23,7 +23,7 @@ import org.apache.logging.log4j.Logger;
 
 @Configuration
 @PropertySource("classpath:config/db.properties")
-@MapperScan(basePackages = {"com.example.vscapp01.mapper"})
+@MapperScan(basePackages = {"com.example.vscapp02.mapper"})
 public class DataConfig {
     private Logger logger = LogManager.getLogger(DataConfig.class);
 
@@ -35,7 +35,7 @@ public class DataConfig {
 
     @Bean
 	public DataSource dataSource() {
-        String profile = "prod";
+        String profile = "dev";
         
         // if(env != null){
         //     profile = env.getActiveProfiles()[0];
@@ -66,12 +66,12 @@ public class DataConfig {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         sqlSessionFactoryBean.setConfigLocation(applicationContext.getResource("classpath:mybatis-config.xml"));
-        //sqlSessionFactoryBean.setMapperLocations(applicationContext.getResource("classpath:com/example/vscapp01/mapper/**/*.xml"));
+        //sqlSessionFactoryBean.setMapperLocations(applicationContext.getResource("classpath:com/example/vscapp02/mapper/**/*.xml"));
 
         //PathMatchingResourcePatternResolver patternResolver = new PathMatchingResourcePatternResolver();
         //sqlSessionFactoryBean.setConfigLocation(patternResolver.getResource("classpath:mybatis-config.xml"));
         //sqlSessionFactoryBean.setMapperLocations(patternResolver.getResources("classpath:com/example/vscapp01/mapper/**/*.xml"));
-        sqlSessionFactoryBean.setTypeAliasesPackage("com.example.vscapp01");
+        sqlSessionFactoryBean.setTypeAliasesPackage("com.example.vscapp02");
         return sqlSessionFactoryBean.getObject();
     }
 

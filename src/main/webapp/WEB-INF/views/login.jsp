@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <style>
 	#loginForm{
@@ -16,17 +16,19 @@
 	}
 </style>
 
+
 <div class="np fff col-sm-12 col-xs-12 mg-lg-t20" >
 	<div class="col-sm-10 col-sm-offset-1 col-xs-12 ">
 		<div class="page-header page-header-b">
-			<h1>관리자 로그인</h1>
+			<h1>login test...</h1>
 		</div>
 
 		<div class="col-sm-12 col-xs-12 mg-sm-b50 mg-xs-b20">
-			<%--<blockquote class="mg-sm-t30"><strong>관리자 로그인</strong></blockquote>--%>
-
 			<div class="col-sm-12 col-xs-12 mg-sm-t30 mg-xs-t30">
 				<sf:form class="form-horizontal" action="/loginProcess" method="post" id="loginForm">
+					
+					
+
 					<div class="form-group">
 						<label class="control-label col-sm-3" for="username">UserName : </label>
 						<input type="text" class="form-control col-sm-9" id="username" placeholder="UserName" name="username">
@@ -43,21 +45,41 @@
 					</div>
 				</sf:form>
 			</div>
-
 		</div>
-
-		<!-- <div class="col-sm-12 col-xs-12 mg-sm-b50 mg-xs-b20">
-			<hr class="col-sm-12 mg-sm-t70 mg-sm-b70 mg-xs-t70 mg-xs-b70">
-		</div> -->
-
 	</div>
 </div>
 
-<%--
+
+
+<sf:form name="logoutForm" method="post" action="/logout">
+    <!-- <input type="hidden" name="${_csrf.parameterName}" 	value="${_csrf.token}" /> -->
+</sf:form>
+
+
+<security:authorize access="hasRole('MEMBER')">
+	<div class="m_login hidden-lg hidden-md">
+		<a href="#" onclick="javascript:document.logoutForm.submit();">로그아웃</a>
+	</div>
+</security:authorize>
+
 <security:authorize access="hasRole('ADMIN')">
 aaa
 </security:authorize>
-<security:authorize access="isAnonymous()">
+<security:authorize access="hasRole('MEMBER')">
 bbb
 </security:authorize>
---%>
+<security:authorize access="isAnonymous()">
+ccc
+</security:authorize>
+
+<security:authorize access="isAuthenticated()">
+1111111111
+</security:authorize>
+
+
+<!-- <security:authentication var="user" property="principal"/> -->
+<p>principal : <security:authentication property="principal" /></p>
+<p>MemberVO : <security:authentication property="principal.member"/></p>
+<p>사용자 이름 : <security:authentication property="principal.member.userName"/></p>
+<p>사용자 아이디 : <security:authentication property="principal.username"/></p>
+<p>사용자 권한 리스트 : <security:authentication property="principal.member.authList"/></p>

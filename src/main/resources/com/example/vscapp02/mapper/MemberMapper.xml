@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.vscapp02.mapper.MemberMapper">
+    
+    <resultMap id="MemberMap" type="Member" autoMapping="true">
+        <id column="member_no" property="memberNo"/>
+        <!-- <result typeHandler="encryptTypeHandler" property="memberId" javaType="string" column="member_id"/> 암호화대상만 등록한다 -->
+        <!-- <result typeHandler="encryptTypeHandler" property="name" javaType="string" column="member_nm"/> -->
+    </resultMap>
+
+    <resultMap id="RoleMap" type="Role" autoMapping="true">
+        <id column="role_no" property="roleNo"/>
+        <id column="role_nm" property="roleName"/>
+    </resultMap>
+
+
+    <!-- 
+    <select id="getFindAll" resultMap="MemberMap">
+        select * from fa_memberinfo
+    </select>
+    -->
+    
+    <select id="selectMember" parameterType="string" resultMap="MemberMap">
+        SELECT
+            a.member_no
+            , a.member_id
+            , a.password
+            , a.name
+            , a.email
+        FROM fa_memberinfo a
+        WHERE a.member_id = #{memberId}
+    </select>
+
+    <select id="selectMemberRole" parameterType="Member" resultMap="RoleMap">
+        SELECT
+        A.member_id,
+        B.role_no,
+        B.role_nm
+        FROM fa_memberinfo A JOIN fa_role B
+        WHERE A.member_id = #{memberId}
+    </select>
+    
+    <select id="selectMemberIdByMemberId" resultType="string">
+        SELECT
+          member_id
+        FROM fa_memberinfo
+        WHERE member_id = #{memberId}
+    </select>
+
+    <insert id="insertMember" parameterType="Member" useGeneratedKeys="true" keyProperty="memberNo">
+        INSERT INTO fa_memberinfo (member_id, password, email, name)
+        VALUES(#{memberId}, #{password}, #{email}, #{name, typeHandler=encryptTypeHandler})
+    </insert>
+
+
+    <!-- 
+    <insert id="createMember" parameterType="Member">
+        INSERT INTO fa_memberinfo (member_id, name, password)
+        VALUES(#{memberId}, #{name}, #{password})
+    </insert>
+     -->
+
+</mapper>

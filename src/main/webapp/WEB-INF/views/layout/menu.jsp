@@ -104,13 +104,13 @@
               <li class="nav-item">
                 <a href="/education" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>교육안내<small>(교서)</small></p>
+                  <p>교육안내<small></small></p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/classplan" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>수업안내<small>(일정)</small></p>
+                  <p>수업안내<small></small></p>
                 </a>
               </li>
               <li class="nav-item">
@@ -184,7 +184,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/reference" class="nav-link">
+                <a href="/login" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>자료실</p>
                 </a>

@@ -44,17 +44,18 @@ public class MainController{
     }
 
     @RequestMapping(path = "login")
-    public String login() {
-        logger.debug("login...index.html");
-        return "login";
+    public void login() {
+        logger.debug("login...");
     }
 
     @RequestMapping(path = "loginFail")
     public void login_fail() {
+        logger.debug("login_fail...");
     }
 
     @RequestMapping(path = "logout")
     public void logout() {
+        logger.debug("logout...");
     }
 
 
