@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.vscapp02.mapper.NoticeMapper">
+
+    <resultMap id="NoticeMap" type="Notice" autoMapping="true">
+        <id column="notice_no" property="noticeNo"/>
+        <id column="writer_id" property="writerId"/>
+        <id column="reg_type" property="regType"/>
+        <id column="header_type" property="headerType"/>
+    </resultMap>
+
+    <select id="selectHeaderNotices" parameterType="map" resultMap="NoticeMap">
+        SELECT
+            notice_no,
+            title,
+            content,
+            writer_id,
+            password,
+            hits,
+            reg_type,
+            header_type,
+            inpdt,
+            moddt
+        FROM fa_notice
+        WHERE 1=1
+        AND header_type = #{notice.headerType}
+        ORDER BY inpdt DESC
+    </select>
+
+    <select id="selectNotices" parameterType="map" resultMap="NoticeMap">
+        SELECT
+            notice_no,
+            title,
+            content,
+            writer_id,
+            password,
+            hits,
+            reg_type,
+            header_type,
+            inpdt,
+            moddt
+            FROM fa_notice
+            WHERE 1=1
+            <if test="notice.writerId != null and notice.writerId !=''">
+                AND writer_id = #{notice.writerId}
+            </if>
+            <if test="notice.noticeNo != null and notice.noticeNo !=''">
+                AND notice_no = #{notice.noticeNo}
+            </if>
+            <if test="notice.title != null and notice.title !=''">
+                AND title LIKE CONCAT('%',#{notice.title},'%')
+            </if>
+            <if test="notice.content != null and notice.content !=''">
+                AND content LIKE CONCAT('%',#{notice.content},'%')
+            </if>
+            AND header_type = #{notice.headerType}
+            ORDER BY inpdt DESC
+            LIMIT #{pagerInfo.start}, #{pagerInfo.itemCountPerPage}
+    </select>
+
+    <select id="selectNoticeTotalCount" parameterType="map" resultType="int">
+        SELECT COUNT(*)
+        FROM fa_notice
+        WHERE 1=1
+        <if test="notice.noticeNo != null and notice.noticeNo !=''">
+            AND notice_no = #{notice.noticeNo}
+        </if>
+        <if test="notice.title != null and notice.title !=''">
+            AND title LIKE CONCAT('%',#{notice.title},'%')
+        </if>
+        <if test="notice.name != null and notice.name !=''">
+            AND name LIKE CONCAT('%',#{notice.name},'%')
+        </if>
+        AND header_type = #{notice.headerType}
+    </select>
+
+
+
+
+    
+
+    
+
+    <select id="selectNotice" resultType="Notice">
+        SELECT
+            seq,
+            name,
+            password,
+            email,
+            phone_number AS phoneNumber,
+            title,
+            content,
+            content_open AS contentOpen,
+            comment,
+            reg_dt AS regDt,
+            file_size AS fileSize,
+            file_name_origin AS fileNameOrigin,
+            file_name_upload AS fileNameUpload,
+            file_type AS fileType,
+            ctype AS cType,
+            header_type AS headerType
+        FROM COMMON_BOARD
+        WHERE seq = #{notice.seq}
+        AND ctype = #{notice.cType}
+    </select>
+
+    <update id="updateNotice">
+        UPDATE COMMON_BOARD SET
+        name = #{notice.name},
+        password = #{notice.password},
+        email = #{notice.email},
+        phone_number = #{notice.phoneNumber},
+        title = #{notice.title},
+        content = #{notice.content},
+        file_size = #{notice.fileSize},
+        file_name_origin = #{notice.fileNameOrigin},
+        file_name_upload = #{notice.fileNameUpload},
+        file_type = #{notice.fileType},
+        content_open = #{notice.contentOpen},
+        header_type = #{notice.headerType}
+        WHERE seq = #{notice.seq}
+        AND ctype = #{notice.cType}
+    </update>
+
+    <insert id="insertNotice">
+        INSERT INTO COMMON_BOARD (name, password, email, phone_number, title, content, reg_dt, file_size, file_name_origin, file_name_upload, file_type, ctype, content_open, header_type)
+        VALUES( #{notice.name}, #{notice.password}, #{notice.email}, #{notice.phoneNumber}, #{notice.title}, #{notice.content}, #{notice.regDt}, #{notice.fileSize}, #{notice.fileNameOrigin}, #{notice.fileNameUpload}, #{notice.fileType}, #{notice.cType},  #{notice.contentOpen}, #{notice.headerType})
+    </insert>
+
+    <delete id="deleteNotice">
+        DELETE FROM COMMON_BOARD WHERE seq = #{notice.seq} AND ctype = #{notice.cType}
+    </delete>
+
+</mapper>

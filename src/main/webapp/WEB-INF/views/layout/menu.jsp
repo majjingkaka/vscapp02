@@ -4,7 +4,7 @@
 
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="${pageContext.request.contextPath}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">SaltCoding</span>
     </a>
 
@@ -149,7 +149,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/notice" class="nav-link">
+                <a href="/noticeList" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>공지</p>
                 </a>

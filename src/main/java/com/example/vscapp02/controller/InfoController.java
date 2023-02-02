@@ -12,23 +12,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class InfoController{
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     
-    @RequestMapping(path = "/notice", method = RequestMethod.GET)
-    public String notice(HttpServletRequest request, Model model){
-        logger.debug("### MainController notice call...");
-        model.addAttribute("noticeHeaderList", "11");
-        return "info/notice";
-    }
+    // @RequestMapping(path = "/notice", method = RequestMethod.GET)
+    // public String notice(HttpServletRequest request, Model model){
+    //     logger.debug("### InfoController notice call...");
+    //     model.addAttribute("noticeHeaderList", "11");
+    //     return "info/notice";
+    // }
 
     @RequestMapping(path = "/question", method = RequestMethod.GET)
     public String question(HttpServletRequest request, Model model){
-        logger.debug("### MainController question call...");
+        logger.debug("### InfoController question call...");
         model.addAttribute("noticeHeaderList", "11");
         return "info/question";
     }
 
     @RequestMapping(path = "/gallery", method = RequestMethod.GET)
     public String gallery(HttpServletRequest request, Model model){
-        logger.debug("### MainController gallery call...");
+        logger.debug("### InfoController gallery call...");
         model.addAttribute("noticeHeaderList", "11");
         return "info/gallery";
     }
