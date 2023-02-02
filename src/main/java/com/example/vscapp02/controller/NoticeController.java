@@ -41,15 +41,15 @@ public class NoticeController {
     // @Autowired
     // private ImageDomain imageDomain;
 
-    /*원내알림*/
+    // 원내알림
     @RequestMapping(path = "/noticeList", method = RequestMethod.GET)
     public String noticeList(Notice notice,
                              Model model,
                              @RequestParam(defaultValue = "")String searchType,
                              @RequestParam(defaultValue = "")String searchContent,
                              @RequestParam(defaultValue = "1")int page){
-                                logger.debug("### NoticeController noticeList call...");
-
+        logger.debug("### NoticeController noticeList call...");
+        
         // 검색조건 세팅
         // if(!StringUtils.isEmpty(searchType)){
         //     if(searchType.equals("searchNum")){

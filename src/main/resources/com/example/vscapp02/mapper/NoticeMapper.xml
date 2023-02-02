@@ -13,7 +13,7 @@
         SELECT
             notice_no,
             title,
-            content,
+            CONVERT(content USING euckr) as content,
             writer_id,
             password,
             hits,
@@ -31,7 +31,7 @@
         SELECT
             notice_no,
             title,
-            content,
+            CONVERT(content USING euckr) as content,
             writer_id,
             password,
             hits,

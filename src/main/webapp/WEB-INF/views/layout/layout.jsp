@@ -8,6 +8,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 		<%@ include file="head.jsp" %>
+		<title><t:getAsString name="title" /></title>
+		
 		<body class="hold-transition sidebar-mini layout-fixed">
 			<section class="content">
 				<div id="wrapper" class="wrapper">
@@ -44,4 +46,20 @@
 			
 		 </body>
 		 <%@ include file="plugin_js.jsp" %>
+
+		 <script>
+			$(function () {
+				var token = $("meta[name='_csrf']").attr("content");
+				var header = $("meta[name='_csrf_header']").attr("content");
+
+				$(document).ajaxSend(function(e, xhr, options) {
+					//console.log('ajaxSend');
+					xhr.setRequestHeader(header, token);
+				});
+			});
+
+			$(document).ready(function(){
+				//
+			});
+		 </script>
 </html>

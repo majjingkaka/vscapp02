@@ -31,6 +31,8 @@ public class Notice {
     private String cType; // 컬럼타입
     private boolean headerType; // 0:리스트공지 1:상단공지
 
+    private Date inpDt;
+
     public boolean isHeaderType() {
         return headerType;
     }
@@ -173,5 +175,13 @@ public class Notice {
 
     public void setRegDt(Date regDt) {
         this.regDt = regDt;
+    }
+
+    public Date getInpDt() {
+        return inpDt;
+    }
+
+    public void setInpDt(Date inpDt) {
+        this.inpDt = inpDt;
     }
 }
