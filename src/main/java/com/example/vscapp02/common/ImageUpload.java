@@ -3,11 +3,11 @@ package com.example.vscapp02.common;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletContext;
+//import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -24,7 +24,7 @@ public class ImageUpload {
         //System.out.println(originalFilename);
         //System.out.println(uploadedFileName);
 
-        ServletContext context = request.getServletContext();
+        //ServletContext context = request.getServletContext();
         //String path = context.getRealPath("/")+"upload/";
         String path = "src/main/resources/upload/";
 
@@ -44,8 +44,9 @@ public class ImageUpload {
 
     public static boolean imageRemove(HttpServletRequest request, String uploadedFileName) throws IOException{
 
-        ServletContext context = request.getServletContext();
-        String path = context.getRealPath("/")+"upload/";
+        //ServletContext context = request.getServletContext();
+        //String path = context.getRealPath("/")+"upload/";
+        String path = "src/main/resources/upload/";
 
         try {
             File file = new File(path + uploadedFileName);

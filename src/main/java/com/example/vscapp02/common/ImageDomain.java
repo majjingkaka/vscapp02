@@ -15,7 +15,7 @@ import javax.annotation.PostConstruct;
 public class ImageDomain {
     private static Logger logger = LoggerFactory.getLogger(ImageDomain.class);
 
-    public static final String PROD_DOMAIN = "http://onyouclinic.cdn3.cafe24.com"; //http://onyouclinic.com
+    public static final String PROD_DOMAIN = "http://localhost";
     public static final String DEV_DOMAIN = "http://localhost";
 
     private String domain;
