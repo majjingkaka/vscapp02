@@ -97,12 +97,44 @@
         </div>
     </form>
     
+    
+    
+    <!-- <br><br> -->
+
     <security:authorize access="hasRole('ADMIN')">
         <a class="btn btn-default pull-right btn-gr btn-sm" href="/noticeRegForm">글쓰기</a>            
     </security:authorize>
     
-    <br><br>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+            <c:if test="${pagerInfo.startPageIndex > pagerInfo.blockPage}">
+                <li class="page-item">
+                    <a class="paging-type page-link" href="javascript:goPage(${pagerInfo.startPageIndex -pagerInfo.blockPage});" aria-label="Prev"><span aria-hidden="true">Previous</span></a>
+                    <!-- <a class="page-link">Previous</a> -->
+                </li>
+            </c:if>
 
+            <c:forEach begin="${pagerInfo.startPageIndex}" end="${pagerInfo.endPageIndex}" var="index">
+                <li class="${pagerInfo.currentPage== index ? 'active':''} page-item">
+                    <a class="paging-type page-link" href="javascript:goPage(${index});">${index}</a>
+                </li>
+            </c:forEach>
+
+            <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+
+            <c:if test="${pagerInfo.endPageIndex < pagerInfo.pageTotal}">
+                <li class="page-item">
+                    <a class="paging-type page-link" href="javascript:goPage(${pagerInfo.endPageIndex + 1});" aria-label="Next"><span aria-hidden="true">Next</span></a>
+                    <!-- <a class="page-link" href="#">Next</a> -->
+                </li>
+            </c:if>
+            
+        </ul>
+    </nav>
+    
+    <!--     
     <div class="col-sm-12 col-xs-12 text-center">
         <ul class="pagination">
             <c:if test="${pagerInfo.startPageIndex > pagerInfo.blockPage}">
@@ -117,7 +149,7 @@
                 <li><a class="paging-type" href="javascript:goPage(${pagerInfo.endPageIndex + 1});" aria-label="Next"><span aria-hidden="true">다음 »</span></a></li>
             </c:if>
         </ul>
-    </div>
+    </div> -->
 
     <br><br>
 

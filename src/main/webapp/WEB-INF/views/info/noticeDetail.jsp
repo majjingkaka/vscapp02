@@ -27,9 +27,9 @@
         border-top: 0px solid #ddd !important;
     }
 
-    .button{
+    /* .button{
         margin: 0px 0px 0px 5px;
-    }
+    } */
 
     #uploadimg{
         background-size: cover;
@@ -61,66 +61,54 @@
             <h2>상세</h2>
         </div>
     </div>
-    <div class="col-sm-10 col-xs-12 ">
 
-        <div class="col-sm-12 col-xs-12 mg-sm-b50 mg-xs-b50">
-            <form class="form-horizontal">
-
-                <div id="detail-box" class="np col-sm-12 mg-sm-b50 mg-xs-b50">
-
-                    <div class="form-group col-sm-8">
-                        <label class="control-label col-sm-2" for="title">제목 :</label>
-                        <div class="col-sm-10">
-                            <p class="form-control-static" id="title">${noticeDetail.title}</p>
-                        </div>
-                    </div>
-
-                    <div class="form-group col-sm-4">
-                        <label class="control-label col-sm-4" for="regDt">작성일 :</label>
-                        <div class="col-sm-8">
-                            <p class="form-control-static" id="regDt"><fmt:formatDate value="${noticeDetail.regDt}" pattern="yyyy.MM.dd"/></p>
-                        </div>
-                    </div>
-
-                    <c:if test="${null ne noticeDetail.fileNameUpload}">
-                        <div class="form-group">
-                            <label class="control-label col-sm-2" for="uploadimg">첨부이미지 :</label>
-                            <div class="col-sm-10">
-                                <img id="uploadimg" src="${imgPath}${noticeDetail.fileNameUpload}" />
-                            </div>
-                        </div>
-                    </c:if>
-
-                    <div class="form-group col-sm-12">
-                        <div class="col-sm-12">
-                            <p class="form-control-static" id="content">${noticeDetail.content}</p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </form>
-
-            <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:location.href='/noticeList'">목록으로</button>
-            
-            <security:authorize access="hasRole('ADMIN')">
-                <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:deleteAndModify('d');">삭제</button>
-                <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:deleteAndModify('m');">수정</button>
-            </security:authorize>
-            <br><br>
-
+    <div class="form-group">
+        <label class="control-label" for="title">제목 :</label>
+        <div class="">
+            <p class="form-control-static" id="title">${noticeDetail.title}</p>
         </div>
-
     </div>
+
+    <div class="form-group">
+        <label class="control-label" for="inpDt">작성일 :</label>
+        <div class="">
+            <p class="form-control-static" id="inpDt"><fmt:formatDate value="${noticeDetail.inpDt}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
+        </div>
+    </div>
+
+    <c:if test="${null ne noticeDetail.fileNameUpload}">
+        <div class="form-group">
+            <label class="control-label" for="uploadimg">첨부이미지 :</label>
+            <div class="">
+                <img id="uploadimg" src="${imgPath}${noticeDetail.fileNameUpload}" />
+            </div>
+        </div>
+    </c:if>
+
+    <div class="form-group">
+        <label class="control-label" for="title">내용 :</label>
+        <div class="">
+            <p class="form-control-static" id="content">${noticeDetail.content}</p>
+        </div>
+    </div>
+
+    <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:location.href='/noticeList'">목록으로</button>
+            
+    <security:authorize access="hasRole('ADMIN')">
+        <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:deleteAndModify('d');">삭제</button>
+        <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:deleteAndModify('m');">수정</button>
+    </security:authorize>
+    <br><br>
+
 </div>
 
-<div id="passwordConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabelConfirm" class="modal fade custommodal">
-    <div role="document" class="modal-dialog" style="top: 200px;">
+<div class="modal fade" id="passwordConfirm" tabindex="-1" aria-labelledby="myModalLabelConfirm" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog" style="top: 200px;">
         <div class="modal-content">
-
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h3 id="myModalLabelConfirm" class="modal-title">비밀번호 확인</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                <span aria-hidden="true">&times;</span>
             </div>
 
             <div class="modal-body">
@@ -163,14 +151,14 @@
 
     function deleteAndModify(type){
         if(type == 'd'){
-            $('#removeBtn').removeClass('hide');
-            $('#modifyBtn').addClass('hide');
+            $('#removeBtn').removeClass('d-none');
+            $('#modifyBtn').addClass('d-none');
         }else if(type == 'm'){
-            $('#removeBtn').addClass('hide');
-            $('#modifyBtn').removeClass('hide');
+            $('#removeBtn').addClass('d-none');
+            $('#modifyBtn').removeClass('d-none');
         }else{
-            $('#removeBtn').removeClass('hide');
-            $('#modifyBtn').addClass('hide');
+            $('#removeBtn').removeClass('d-none');
+            $('#modifyBtn').addClass('d-none');
         }
         
         $('#passwordConfirm').modal('show');

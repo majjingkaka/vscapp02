@@ -10,9 +10,6 @@
 
 
 <style>
-    textarea.form-control {
-        height: 300px;
-    }
 
     .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
         border-top: 0px solid #ddd !important;
@@ -29,7 +26,21 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/ckajaxplugin.js"></script>
 
 
-<div class="col-sm-12 col-xs-12">
+<style>
+    .blockquote{
+        background-color: #fff;
+        border-left: .7rem solid #fff;
+        margin: 1.5em .7rem;
+        padding: .5em .7rem;
+    }
+</style>
+<div class="container-fluid p-3">
+
+    <div class="card">
+        <div class="card-body">
+            <h2>공지입력</h2>
+        </div>
+      </div>
 
     <sf:form modelAttribute="noticeDetail" class="form-horizontal" id="noticeReg" name="noticeReg" action="/noticeReg" method="post">
         <sf:input type="hidden" path="noticeNo" name="noticeNo" id="noticeNo"/>
@@ -73,7 +84,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="imgFile">첨부이미지 :</label>
             <div class="col-sm-10">
-                <input type="file" placeholder="파일을 선택하세요." id="imgFile" name="imgFile" class="form-control"/>
+                <input type="file" placeholder="파일을 선택하세요." id="imgFile" name="imgFile" class="form-control-file"/>
             </div>
         </div>
 

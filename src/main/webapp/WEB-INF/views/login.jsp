@@ -16,64 +16,67 @@
 	}
 </style>
 
+<style>
+  .blockquote{
+      background-color: #fff;
+      border-left: .7rem solid #fff;
+      margin: 1.5em .7rem;
+      padding: .5em .7rem;
+  }
+</style>
 
-<div class="np fff col-sm-12 col-xs-12 mg-lg-t20" >
-	<div class="col-sm-10 col-sm-offset-1 col-xs-12 ">
-		<div class="page-header page-header-b">
-			<h1>login test...</h1>
-		</div>
-
-		<div class="col-sm-12 col-xs-12 mg-sm-b50 mg-xs-b20">
-			<div class="col-sm-12 col-xs-12 mg-sm-t30 mg-xs-t30">
-				<sf:form class="form-horizontal" action="/loginProcess" method="post" id="loginForm">
-					
-					
-
-					<div class="form-group">
-						<label class="control-label col-sm-3" for="username">UserName : </label>
-						<input type="text" class="form-control col-sm-9" id="username" placeholder="UserName" name="username">
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-3" for="password">Password : </label>
-						<input type="password" class="form-control col-sm-9" id="password" placeholder="Password" name="password">
-					</div>
-					<div class="form-group">
-						<label class="control-label col-sm-3" for="password"></label>
-						<div class="np col-sm-9">
-							<button type="submit" class="btn btn-default pull-right btn-gr">로그인</button>
-						</div>
-					</div>
-				</sf:form>
-			</div>
-		</div>
+<div class="container-fluid p-3" >
+	<div class="page-header page-header-b">
+		<h1>login</h1>
 	</div>
+
+	<sf:form class="form-horizontal" action="/loginProcess" method="post" id="loginForm">
+		<div class="form-group">
+			<label class="control-label" for="username">UserName : </label>
+			<input type="text" class="form-control" id="username" placeholder="UserName" name="username">
+		</div>
+		<div class="form-group">
+			<label class="control-label" for="password">Password : </label>
+			<input type="password" class="form-control" id="password" placeholder="Password" name="password">
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-default pull-right btn-gr">로그인</button>
+
+			<security:authorize access="isAuthenticated()">
+				<div class="btn btn-default pull-right btn-gr">
+					<a href="#" onclick="javascript:document.logoutForm.submit();">로그아웃</a>
+				</div>
+			</security:authorize>
+		</div>
+		<br>
+		<security:authorize access="hasRole('ADMIN')">
+		관리자 등급입니다.
+		</security:authorize>
+		<br>
+		<security:authorize access="hasRole('MEMBER')">
+		멤버 등급입니다.
+		</security:authorize>
+		<br>
+		<security:authorize access="isAnonymous()">
+		로그오프입니다.
+		</security:authorize>
+		<br>
+		<security:authorize access="isAuthenticated()">
+		로그인상태입니다.
+		</security:authorize>
+	</sf:form>
+
+	
 </div>
 
 
-
 <sf:form name="logoutForm" method="post" action="/logout">
-    <!-- <input type="hidden" name="${_csrf.parameterName}" 	value="${_csrf.token}" /> -->
+    <!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> -->
 </sf:form>
 
 
-<security:authorize access="hasRole('MEMBER')">
-	<div class="m_login hidden-lg hidden-md">
-		<a href="#" onclick="javascript:document.logoutForm.submit();">로그아웃</a>
-	</div>
-</security:authorize>
 
-<security:authorize access="hasRole('ADMIN')">
-aaa
-</security:authorize>
-<security:authorize access="hasRole('MEMBER')">
-bbb
-</security:authorize>
-<security:authorize access="isAnonymous()">
-ccc
-</security:authorize>
 
-<security:authorize access="isAuthenticated()">
-1111111111
-</security:authorize>
+
 
 
