@@ -69,6 +69,14 @@
                         </div>
                     </div>
 
+                    <c:if test="${null ne noticeDetail.fileNameUpload}">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="uploadimg">첨부이미지 :</label>
+                            <div class="col-sm-10">
+                                <img id="uploadimg" src="${imgPath}${noticeDetail.fileNameUpload}" />
+                            </div>
+                        </div>
+                    </c:if>
 
                     <div class="form-group col-sm-12">
                         <div class="col-sm-12">
@@ -87,10 +95,36 @@
 
             <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:deleteAndModify('d');">삭제</button>
             <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:deleteAndModify('m');">수정</button>
-
+            
+            
+            <br><br>
 
         </div>
 
+    </div>
+</div>
+
+<div id="passwordConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabelConfirm" class="modal fade custommodal">
+    <div role="document" class="modal-dialog" style="top: 200px;">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 id="myModalLabelConfirm" class="modal-title">비밀번호 확인</h3>
+            </div>
+
+            <div class="modal-body">
+                <input type="text" placeholder="비밀번호를 입력하세요." id="modalPassword" class="form-control" />
+            </div>
+
+            <div class="modal-footer">
+                <button id="removeBtn" data-toggle="modal" class="button btn btn-default btn-sm btn-gr" onclick="remove();">삭제확인</button>
+                <button id="modifyBtn" data-toggle="modal" class="button btn btn-default btn-sm hide btn-gr" onclick="modify();">수정확인</button>
+
+                <button data-toggle="modal" class="button btn btn-default btn-sm btn-gr" onclick="$('#passwordConfirm').modal('hide');return false;">취소</button>
+            </div>
+
+        </div>
     </div>
 </div>
 
@@ -100,42 +134,77 @@
 
 <script>
 
-    // $(document).ready(function(){
-    //     //
-    // });
+    $(document).ready(function(){
+    });
+
+    // function deleteAndModify(type){
+    //     if(type == 'd'){
+    //         //삭제
+    //         if(confirm("삭제 하시겠습니까?")) {
+    //             remove();
+    //         }
+    //     }else if(type == 'm'){
+    //         if(confirm("수정 하시겠습니까?")) {
+    //             modify();
+    //         }
+    //     }
+    //     return;
+    // }
 
     function deleteAndModify(type){
         if(type == 'd'){
-            //삭제
-            if(confirm("삭제 하시겠습니까?")) {
-                remove();
-            }
+            $('#removeBtn').removeClass('hide');
+            $('#modifyBtn').addClass('hide');
         }else if(type == 'm'){
-            if(confirm("수정 하시겠습니까?")) {
-                modify();
-            }
+            $('#removeBtn').addClass('hide');
+            $('#modifyBtn').removeClass('hide');
+        }else{
+            $('#removeBtn').removeClass('hide');
+            $('#modifyBtn').addClass('hide');
         }
+        
+        $('#passwordConfirm').modal('show');
         return;
     }
 
-    function modify(){
-        $('#noticeModify').submit();
-    }
+    // function modify(){
+    //     $('#noticeModify').submit();
+    // }
 
     function remove(){
         var noticeNo = $('#noticeNo').val();
         var modalPassword = $('#modalPassword').val();
         $.ajax({
-            url : "/notice/noticeRemove",
+            url : "/noticeRemove",
             type : "post",
             data : {noticeNo : noticeNo, modalPassword : modalPassword},
             dataType : "json",
             success : function(res) {
                 if ("success" == res.result) {
                     alert("삭제 완료되었습니다.");
-                    location.href='/notice/noticeList';
+                    location.href='/noticeList';
                     //location.reload();
                 }else {
+                    $('#passwordConfirm').modal('hide');
+                    alert(res.message);
+                }
+            }
+        });
+    }
+
+    function modify(){
+        var noticeNo = $('#noticeNo').val();
+        var modalPassword = $('#modalPassword').val();
+        $.ajax({
+            url : "/passwordCheck",
+            type : "post",
+            data : {noticeNo : noticeNo, modalPassword : modalPassword},
+            dataType : "json",
+            success : function(res) {
+                if ("success" == res.result) {
+                    $('#noticeModify').submit();
+                }else {
+                    $('#passwordConfirm').modal('hide');
                     alert(res.message);
                 }
             }

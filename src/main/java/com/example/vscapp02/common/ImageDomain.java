@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.ConfigurableEnvironment;
+// import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
@@ -17,15 +17,14 @@ public class ImageDomain {
 
     public static final String PROD_DOMAIN = "http://onyouclinic.cdn3.cafe24.com"; //http://onyouclinic.com
     public static final String DEV_DOMAIN = "http://localhost";
-    public static final String LOCAL_DOMAIN = "http://localhost";
 
     private String domain;
 
     @Value("${spring.profiles.active}")
     private String profile;
     
-    @Autowired
-    private ConfigurableEnvironment env;
+    // @Autowired
+    // private ConfigurableEnvironment env;
 
     @Autowired
     Environment environment;
@@ -45,8 +44,6 @@ public class ImageDomain {
             this.domain = DEV_DOMAIN;
         } else if("prod".equals(profile)) {
             this.domain = PROD_DOMAIN;
-        }else if("local".equals(profile)) {
-            this.domain = LOCAL_DOMAIN;
         }
     }
 

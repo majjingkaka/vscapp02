@@ -19,6 +19,10 @@
             hits,
             reg_type,
             header_type,
+            file_size AS fileSize,
+            file_name_origin AS fileNameOrigin,
+            file_name_upload AS fileNameUpload,
+            file_type AS fileType,
             inpdt,
             moddt
         FROM fa_notice
@@ -37,6 +41,10 @@
             hits,
             reg_type,
             header_type,
+            file_size AS fileSize,
+            file_name_origin AS fileNameOrigin,
+            file_name_upload AS fileNameUpload,
+            file_type AS fileType,
             inpdt,
             moddt
             FROM fa_notice
@@ -84,6 +92,10 @@
             hits,
             reg_type,
             header_type,
+            file_size AS fileSize,
+            file_name_origin AS fileNameOrigin,
+            file_name_upload AS fileNameUpload,
+            file_type AS fileType,
             inpdt,
             moddt
         FROM fa_notice
@@ -98,12 +110,12 @@
     </update>
 
     <insert id="insertNotice">
-        INSERT INTO fa_notice (name, password, email, phone_number, title, content, reg_dt, file_size, file_name_origin, file_name_upload, file_type, ctype, content_open, header_type)
-        VALUES( #{notice.name}, #{notice.password}, #{notice.email}, #{notice.phoneNumber}, #{notice.title}, #{notice.content}, #{notice.regDt}, #{notice.fileSize}, #{notice.fileNameOrigin}, #{notice.fileNameUpload}, #{notice.fileType}, #{notice.cType},  #{notice.contentOpen}, #{notice.headerType})
+        INSERT INTO fa_notice (writer_id, password, title, content, file_size, file_name_origin, file_name_upload, file_type, header_type, content_open)
+        VALUES( #{notice.writerId}, #{notice.password}, #{notice.title}, #{notice.content},#{notice.fileSize}, #{notice.fileNameOrigin}, #{notice.fileNameUpload}, #{notice.fileType}, #{notice.headerType}, #{notice.contentOpen})
     </insert>
 
     <delete id="deleteNotice">
-        DELETE FROM fa_notice WHERE seq = #{notice.seq} AND ctype = #{notice.cType}
+        DELETE FROM fa_notice WHERE notice_no = #{notice.noticeNo}
     </delete>
 
 </mapper>

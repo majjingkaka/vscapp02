@@ -38,8 +38,8 @@
             
                                 <c:forEach items = "${noticeHeaderList}" var = "noticeHeaderList" varStatus="status">
                                     <tr>
-                                        <td>${noticeHeaderList.noticeNo}</td>
-                                        <!-- <td><span class="label pkbcolor">공지</span></td> -->
+                                        <!-- <td>${noticeHeaderList.noticeNo}</td> -->
+                                        <td><span class="label pkbcolor">공지</span></td>
                                         <td><a href="/notice/${noticeHeaderList.noticeNo}">${noticeHeaderList.title}</a></td>
                                         <td>${noticeHeaderList.writerId}</td>
                                         <td><fmt:formatDate value="${noticeHeaderList.inpDt}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
@@ -69,6 +69,8 @@
         </form>
         
         <a class="btn btn-default pull-right btn-gr" href="/noticeRegForm">글쓰기</a>
+        
+        <br><br>
 
         <div class="col-sm-12 col-xs-12 text-center">
             <ul class="pagination">
@@ -85,6 +87,8 @@
                 </c:if>
             </ul>
         </div>
+
+        <br><br>
 
     </div>
     

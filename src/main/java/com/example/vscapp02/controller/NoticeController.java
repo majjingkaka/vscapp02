@@ -89,7 +89,7 @@ public class NoticeController {
         model.addAttribute("noticeList", noticeList);
         model.addAttribute("pagerInfo", pagerInfo);
 
-        return "info/notice";
+        return "info/noticeList";
     }
 
     
@@ -110,14 +110,40 @@ public class NoticeController {
     
     // 등록처리 //produces = "application/json"
     @RequestMapping(path = "/noticeReg", method = RequestMethod.POST)
-    //@ResponseBody
-    public String noticeReg(Model model, Notice notice, HttpServletRequest request) { //Map<String, Object>
+    @ResponseBody
+    public Map<String, Object> noticeReg(Model model, Notice notice, MultipartHttpServletRequest request) {
         Map<String, Object> result = new HashMap<String, Object>();
+        Iterator<String> itr =  request.getFileNames();
 
+        if (itr.hasNext()) { //!StringUtils.isEmpty(consult.getImgFile())
+            MultipartFile file = request.getFile(itr.next());
+
+            try {
+
+                result = ImageUpload.imageUpload(file, request, result);
+
+                String originalFilename = result.get("originalFilename") + "";
+                String uploadedFileName = result.get("uploadedFileName") + "";
+
+                notice.setFileNameOrigin(originalFilename);
+                notice.setFileNameUpload(uploadedFileName);
+                notice.setFileSize(notice.getImgFile().getSize()+"");
+                notice.setFileType(originalFilename.substring(originalFilename.lastIndexOf(".")+1, originalFilename.length()));
+
+            }catch (Exception e){
+                //e.printStackTrace();
+                result.put("result", "fail");
+                result.put("message", e.getMessage());
+            }
+        }
         
         notice.setContent(StringEscapeUtils.escapeHtml4(notice.getContent()));
-
         //notice.setcType("notice"); // 컬럼타입
+        
+        if(notice.getWriterId() == null || notice.getWriterId().isEmpty()){
+            notice.setWriterId("nologin");
+        }
+
         if(notice.getNoticeNo() != 0 ){
             int updateNotice = noticeMapper.updateNotice(notice);
             result.put("formType","up");
@@ -134,9 +160,9 @@ public class NoticeController {
         //     notice = noticeMapper.selectNotice(notice);
         // }
         // model.addAttribute("noticeDetail", notice);
-        noticeDetail(notice.getNoticeNo(),model,request);
-        //return result;
-        return "info/noticeDetail";
+        //noticeDetail(notice.getNoticeNo(),model,request);
+        return result;
+        //return "info/noticeDetail";
     }
 
     // 상세
@@ -162,21 +188,27 @@ public class NoticeController {
     }
 
     
-    // 원내알림 삭제
+    // 삭제 (업로드자료미포함처리)
     @RequestMapping(path = "/noticeRemove")
     @ResponseBody
-    public Map<String, Object> noticeRemove(@RequestParam int seq,
+    public Map<String, Object> noticeRemove(@RequestParam int noticeNo,
                                              @RequestParam(defaultValue = "", required = false) String modalPassword,
                                              Model model){
 
         Map<String, Object> result = new HashMap<String, Object>();
         Notice notice = new Notice();
-        notice.setNoticeNo(seq);
+        notice.setNoticeNo(noticeNo);
         //notice.setcType("notice");
 
         try {
-            noticeMapper.deleteNotice(notice);
-            result.put("result","success");
+            Notice noticetDetail = noticeMapper.selectNotice(notice);
+            if(noticetDetail.getPassword().equals(modalPassword)){
+                noticeMapper.deleteNotice(notice);
+                result.put("result","success");
+            }else{
+                result.put("result", "fail");
+                result.put("message", "비밀번호를 다시 확인해주세요");
+            }
 
         }catch (Exception e){
             result.put("result", "fail");
@@ -251,5 +283,31 @@ public class NoticeController {
         return result;
     }
 
+    /*패스워드 체크*/
+    @RequestMapping(path = "/passwordCheck")
+    @ResponseBody
+    public Map<String, Object> passwordCheck(@RequestParam int noticeNo,
+                                    @RequestParam(defaultValue = "", required = false) String modalPassword,
+                                    Model model){
 
+        Map<String, Object> result = new HashMap<String, Object>();
+        Notice notice = new Notice();
+        notice.setNoticeNo(noticeNo);
+        //notice.setcType("consult");
+
+        try {
+            notice = noticeMapper.selectNotice(notice);
+            if(notice.getPassword().equals(modalPassword) ){
+                result.put("result","success");
+                result.put("message", "success");
+            }else{
+                result.put("result", "fail");
+                result.put("message", "비밀번호를 다시 확인해주세요");
+            }
+        }catch (Exception e){
+            result.put("result", "fail");
+            result.put("message", e.getMessage());
+        }
+        return result;
+    }
 }

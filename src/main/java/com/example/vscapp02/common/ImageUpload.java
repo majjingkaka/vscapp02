@@ -25,7 +25,8 @@ public class ImageUpload {
         //System.out.println(uploadedFileName);
 
         ServletContext context = request.getServletContext();
-        String path = context.getRealPath("/")+"upload/";
+        //String path = context.getRealPath("/")+"upload/";
+        String path = "src/main/resources/upload/";
 
         File dir = new File(path);
         if(!dir.isDirectory()){
