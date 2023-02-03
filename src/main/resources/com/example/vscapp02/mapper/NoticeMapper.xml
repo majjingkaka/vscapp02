@@ -74,61 +74,36 @@
         AND header_type = #{notice.headerType}
     </select>
 
-
-
-
-    
-
-    
-
     <select id="selectNotice" resultType="Notice">
         SELECT
-            seq,
-            name,
-            password,
-            email,
-            phone_number AS phoneNumber,
+            notice_no,
             title,
-            content,
-            content_open AS contentOpen,
-            comment,
-            reg_dt AS regDt,
-            file_size AS fileSize,
-            file_name_origin AS fileNameOrigin,
-            file_name_upload AS fileNameUpload,
-            file_type AS fileType,
-            ctype AS cType,
-            header_type AS headerType
-        FROM COMMON_BOARD
-        WHERE seq = #{notice.seq}
-        AND ctype = #{notice.cType}
+            CONVERT(content USING euckr) as content,
+            writer_id,
+            password,
+            hits,
+            reg_type,
+            header_type,
+            inpdt,
+            moddt
+        FROM fa_notice
+        WHERE notice_no = #{notice.noticeNo}
     </select>
 
     <update id="updateNotice">
-        UPDATE COMMON_BOARD SET
-        name = #{notice.name},
-        password = #{notice.password},
-        email = #{notice.email},
-        phone_number = #{notice.phoneNumber},
+        UPDATE fa_notice SET
         title = #{notice.title},
-        content = #{notice.content},
-        file_size = #{notice.fileSize},
-        file_name_origin = #{notice.fileNameOrigin},
-        file_name_upload = #{notice.fileNameUpload},
-        file_type = #{notice.fileType},
-        content_open = #{notice.contentOpen},
-        header_type = #{notice.headerType}
-        WHERE seq = #{notice.seq}
-        AND ctype = #{notice.cType}
+        content = #{notice.content}
+        WHERE notice_no = #{notice.noticeNo}
     </update>
 
     <insert id="insertNotice">
-        INSERT INTO COMMON_BOARD (name, password, email, phone_number, title, content, reg_dt, file_size, file_name_origin, file_name_upload, file_type, ctype, content_open, header_type)
+        INSERT INTO fa_notice (name, password, email, phone_number, title, content, reg_dt, file_size, file_name_origin, file_name_upload, file_type, ctype, content_open, header_type)
         VALUES( #{notice.name}, #{notice.password}, #{notice.email}, #{notice.phoneNumber}, #{notice.title}, #{notice.content}, #{notice.regDt}, #{notice.fileSize}, #{notice.fileNameOrigin}, #{notice.fileNameUpload}, #{notice.fileType}, #{notice.cType},  #{notice.contentOpen}, #{notice.headerType})
     </insert>
 
     <delete id="deleteNotice">
-        DELETE FROM COMMON_BOARD WHERE seq = #{notice.seq} AND ctype = #{notice.cType}
+        DELETE FROM fa_notice WHERE seq = #{notice.seq} AND ctype = #{notice.cType}
     </delete>
 
 </mapper>

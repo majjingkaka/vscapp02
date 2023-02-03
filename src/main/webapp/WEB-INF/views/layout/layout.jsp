@@ -7,7 +7,85 @@
 
 <!DOCTYPE html>
 <html lang="ko">
-		<%@ include file="head.jsp" %>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+			
+		<meta name="_csrf" content="${_csrf.token}"/>
+		<meta name="_csrf_header" content="${_csrf.headerName}"/>
+	
+	
+	
+		<!-- <title><t:getAsString name="title" /></title> -->
+	
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- <title>AdminLTE 3 | Dashboard</title> -->
+	  
+		<!-- Google Font: Source Sans Pro -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/fontawesome-free/css/all.min.css">
+		<!-- Ionicons -->
+		<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<!-- Tempusdominus Bootstrap 4 -->
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+		<!-- iCheck -->
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+		<!-- JQVMap -->
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/jqvmap/jqvmap.min.css">
+		<!-- Theme style -->
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/adminlte.min.css">
+		<!-- overlayScrollbars -->
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+		<!-- Daterange picker -->
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.css">
+		<!-- summernote -->
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/summernote/summernote-bs4.min.css">
+		
+		<!-- jQuery -->
+		<script src="${pageContext.request.contextPath}/plugins/jquery/jquery.min.js"></script>
+		<!-- jQuery UI 1.11.4 -->
+		<script src="${pageContext.request.contextPath}/plugins/jquery-ui/jquery-ui.min.js"></script>
+		<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+		
+		<script>
+		$.widget.bridge('uibutton', $.ui.button)
+		</script>
+		<!-- Bootstrap 4 -->
+		<script src="${pageContext.request.contextPath}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- ChartJS -->
+		<script src="${pageContext.request.contextPath}/plugins/chart.js/Chart.min.js"></script>
+		<!-- Sparkline -->
+		<script src="${pageContext.request.contextPath}/plugins/sparklines/sparkline.js"></script>
+		<!-- JQVMap -->
+		<script src="${pageContext.request.contextPath}/plugins/jqvmap/jquery.vmap.min.js"></script>
+		<script src="${pageContext.request.contextPath}/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+		<!-- jQuery Knob Chart -->
+		<script src="${pageContext.request.contextPath}/plugins/jquery-knob/jquery.knob.min.js"></script>
+		<!-- daterangepicker -->
+		<script src="${pageContext.request.contextPath}/plugins/moment/moment.min.js"></script>
+		<script src="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.js"></script>
+		<!-- Tempusdominus Bootstrap 4 -->
+		<script src="${pageContext.request.contextPath}/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+		<!-- Summernote -->
+		<script src="${pageContext.request.contextPath}/plugins/summernote/summernote-bs4.min.js"></script>
+		<!-- overlayScrollbars -->
+		<script src="${pageContext.request.contextPath}/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+		<!-- AdminLTE App -->
+		<script src="${pageContext.request.contextPath}/dist/js/adminlte.js"></script>
+		<!-- AdminLTE for demo purposes -->
+		<!-- <script src="${pageContext.request.contextPath}/dist/js/demo.js"></script> -->
+		<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+		<!-- <script src="${pageContext.request.contextPath}/dist/js/pages/dashboard.js"></script> -->
+		<script src="${pageContext.request.contextPath}/plugins/jquery-validation/jquery.validate.min.js"></script>
+
+	</head>
+		
+
 		<title><t:getAsString name="title" /></title>
 		
 		<body class="hold-transition sidebar-mini layout-fixed">
@@ -44,22 +122,21 @@
 				</div>
 			</section>
 			
-		 </body>
-		 <%@ include file="plugin_js.jsp" %>
-
-		 <script>
-			$(function () {
-				var token = $("meta[name='_csrf']").attr("content");
-				var header = $("meta[name='_csrf_header']").attr("content");
-
-				$(document).ajaxSend(function(e, xhr, options) {
-					//console.log('ajaxSend');
-					xhr.setRequestHeader(header, token);
+			<script>
+				$(function () {
+					var token = $("meta[name='_csrf']").attr("content");
+					var header = $("meta[name='_csrf_header']").attr("content");
+	
+					$(document).ajaxSend(function(e, xhr, options) {
+						//console.log('ajaxSend');
+						xhr.setRequestHeader(header, token);
+					});
 				});
-			});
+	
+				$(document).ready(function(){
+					//
+				});
+			</script>
 
-			$(document).ready(function(){
-				//
-			});
-		 </script>
+		</body>
 </html>

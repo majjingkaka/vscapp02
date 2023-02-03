@@ -68,6 +68,7 @@
             </div>
         </form>
         
+        <a class="btn btn-default pull-right btn-gr" href="/noticeRegForm">글쓰기</a>
 
         <div class="col-sm-12 col-xs-12 text-center">
             <ul class="pagination">

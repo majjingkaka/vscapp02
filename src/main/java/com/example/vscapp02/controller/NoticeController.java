@@ -2,6 +2,9 @@ package com.example.vscapp02.controller;
 
 
 
+import com.example.vscapp02.common.ImageDomain;
+import com.example.vscapp02.common.ImageUpload;
+import com.example.vscapp02.dto.FileInfo;
 import com.example.vscapp02.dto.Notice;
 import com.example.vscapp02.dto.PagerInfo;
 
@@ -13,6 +16,7 @@ import com.example.vscapp02.dto.PagerInfo;
 
 import com.example.vscapp02.mapper.NoticeMapper;
 //import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +26,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 //import org.springframework.web.multipart.MultipartFile;
 //import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 //import javax.servlet.ServletContext;
 //import javax.servlet.http.HttpServletRequest;
 //import java.io.File;
 import java.util.*;
+
+//import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 //@RequestMapping(path = "/info")
@@ -38,10 +47,10 @@ public class NoticeController {
     @Autowired
     private NoticeMapper noticeMapper;
 
-    // @Autowired
-    // private ImageDomain imageDomain;
+    @Autowired
+    private ImageDomain imageDomain;
 
-    // 원내알림
+    // 리스트조회
     @RequestMapping(path = "/noticeList", method = RequestMethod.GET)
     public String noticeList(Notice notice,
                              Model model,
@@ -83,66 +92,76 @@ public class NoticeController {
         return "info/notice";
     }
 
-    /*
-    // 원내알림 등록폼
+    
+    // 등록폼
     @RequestMapping(path = "/noticeRegForm")
     public String noticeRegForm(Notice notice, Model model){
 
-        notice.setcType("notice");
+        //notice.setcType("notice");
 
-        if(notice.getSeq() != 0){
-            notice = noticeRepository.selectNotice(notice);
+        if(notice.getNoticeNo() != 0){
+            notice = noticeMapper.selectNotice(notice);
         }
 
         model.addAttribute("noticeDetail", notice);
-        return "/notice/noticeRegForm";
+        return "info/noticeRegForm";
     }
 
-    // 원내알림 content 등록처리
-    @RequestMapping(path = "/noticeReg", produces = "application/json", method = RequestMethod.POST)
-    @ResponseBody
-    public Map<String, Object> noticeReg(Model model, Notice notice) {
+    
+    // 등록처리 //produces = "application/json"
+    @RequestMapping(path = "/noticeReg", method = RequestMethod.POST)
+    //@ResponseBody
+    public String noticeReg(Model model, Notice notice, HttpServletRequest request) { //Map<String, Object>
         Map<String, Object> result = new HashMap<String, Object>();
 
         
         notice.setContent(StringEscapeUtils.escapeHtml4(notice.getContent()));
 
-        notice.setcType("notice"); // 컬럼타입
-        if(notice.getSeq() != 0 ){
-            int updateNotice = noticeRepository.updateNotice(notice);
+        //notice.setcType("notice"); // 컬럼타입
+        if(notice.getNoticeNo() != 0 ){
+            int updateNotice = noticeMapper.updateNotice(notice);
             result.put("formType","up");
+            result.put("formTypeCt",updateNotice);
         }else{
-            notice.setRegDt(new Date()); // 등록시간 지정
-            int insertNotice = noticeRepository.insertNotice(notice);
+            //notice.setRegDt(new Date()); // 등록시간 지정
+            int insertNotice = noticeMapper.insertNotice(notice);
             result.put("formType","in");
+            result.put("formTypeCt",insertNotice);
         }
-
         result.put("result","success");
-        return result;
+        
+        // if(notice.getNoticeNo() != 0){
+        //     notice = noticeMapper.selectNotice(notice);
+        // }
+        // model.addAttribute("noticeDetail", notice);
+        noticeDetail(notice.getNoticeNo(),model,request);
+        //return result;
+        return "info/noticeDetail";
     }
 
-    //  원내알림 상세
-    @RequestMapping(path = "/{seq}", method = RequestMethod.GET)
+    // 상세
+    @RequestMapping(path = "/notice/{seq}", method = RequestMethod.GET)
     public String noticeDetail(@PathVariable int seq, Model model, HttpServletRequest request){
 
         Notice notice = new Notice();
-        notice.setSeq(seq);
-        notice.setcType("notice");
+        notice.setNoticeNo(seq);
+        //notice.setcType("notice");
 
-        ServletContext context = request.getServletContext();
+        //ServletContext context = request.getServletContext();
         String pathType = "upload/";
-        String path = context.getRealPath("/")+pathType;
+        //String path = context.getRealPath("/")+pathType;
 
-        Notice noticeDetail = noticeRepository.selectNotice(notice);
+        Notice noticeDetail = noticeMapper.selectNotice(notice);
         String unescapeHtml4Content = StringEscapeUtils.unescapeHtml4(noticeDetail.getContent());
         noticeDetail.setContent(unescapeHtml4Content);
 
         model.addAttribute("noticeDetail", noticeDetail);
         model.addAttribute("imgPath", "/" + pathType);
 
-        return "/notice/noticeDetail";
+        return "info/noticeDetail";
     }
 
+    
     // 원내알림 삭제
     @RequestMapping(path = "/noticeRemove")
     @ResponseBody
@@ -152,11 +171,11 @@ public class NoticeController {
 
         Map<String, Object> result = new HashMap<String, Object>();
         Notice notice = new Notice();
-        notice.setSeq(seq);
-        notice.setcType("notice");
+        notice.setNoticeNo(seq);
+        //notice.setcType("notice");
 
         try {
-            noticeRepository.deleteNotice(notice);
+            noticeMapper.deleteNotice(notice);
             result.put("result","success");
 
         }catch (Exception e){
@@ -166,6 +185,7 @@ public class NoticeController {
         return result;
     }
 
+    
     // 업로드
     @RequestMapping(value = "/uploadimages", produces = "application/json", consumes = "multipart/form-data", method = RequestMethod.POST)
     @ResponseBody
@@ -230,6 +250,6 @@ public class NoticeController {
         }
         return result;
     }
- */
+
 
 }

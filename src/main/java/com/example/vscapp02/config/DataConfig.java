@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,6 +28,9 @@ import org.apache.logging.log4j.Logger;
 public class DataConfig {
     private Logger logger = LogManager.getLogger(DataConfig.class);
 
+    @Value("${spring.profiles.active}")
+    private String profile;
+
     @Autowired
     Environment env;
 
@@ -35,7 +39,7 @@ public class DataConfig {
 
     @Bean
 	public DataSource dataSource() {
-        String profile = "dev";
+        //String profile = "dev";
         
         // if(env != null){
         //     profile = env.getActiveProfiles()[0];
@@ -56,7 +60,8 @@ public class DataConfig {
 		dataSource.setUsername(env.getProperty(profile + ".main.username"));
 		dataSource.setPassword(env.getProperty(profile + ".main.password"));
 
-        logger.info("profile::::::::"+env.getProperty(profile + ".main.driverClassName"));
+        logger.info("profile:"+profile+":"+env.getProperty(profile + ".main.driverClassName"));
+        logger.info("profile:"+profile+":"+env.getProperty(profile + ".main.url"));
 
 		return dataSource;
 	}

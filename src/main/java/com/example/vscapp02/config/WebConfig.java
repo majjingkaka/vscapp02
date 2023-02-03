@@ -1,10 +1,15 @@
 package com.example.vscapp02.config;
 
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
+
 //import javax.servlet.http.HttpSessionListener;
 
 //import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -32,6 +37,8 @@ public class WebConfig implements WebMvcConfigurer{
 		registry.addResourceHandler("/dist/**").addResourceLocations("classpath:/dist/");
 		registry.addResourceHandler("/m/**").addResourceLocations("classpath:/m/");
 		registry.addResourceHandler("/images/**").addResourceLocations("classpath:/images/");
+		registry.addResourceHandler("/ckeditor/**").addResourceLocations("classpath:/ckeditor/");
+		registry.addResourceHandler("/js/**").addResourceLocations("classpath:/js/");
 
         //registry.addResourceHandler("/images/**").addResourceLocations("/resources/images");
 		//registry.addResourceHandler("/css/**").addResourceLocations("/resources/css");
@@ -70,4 +77,21 @@ public class WebConfig implements WebMvcConfigurer{
 // 	  return new SessionListener();
 //    }
 	
+
+	private int maxUploadSizeInMb = 5 * 1024 * 1024; // 5 MB //파일크기설정
+	/*멀티파트 파일사이즈 설정*/
+	@Bean
+	public CommonsMultipartResolver multipartResolver() {
+		CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
+		commonsMultipartResolver.setMaxUploadSize(maxUploadSizeInMb * 2);
+		commonsMultipartResolver.setMaxUploadSizePerFile(maxUploadSizeInMb); //bytes*//*
+		return commonsMultipartResolver;
+	}
+
+	@Bean
+	public MessageSource messageSource() {
+		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+		messageSource.setBasename("messages");
+		return messageSource;
+	}
 }
