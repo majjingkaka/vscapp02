@@ -1,9 +1,21 @@
-<h1>greeting</h1>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<style>
+  .blockquote{
+      background-color: #fff;
+      border-left: .7rem solid #fff;
+      margin: 1.5em .7rem;
+      padding: .5em .7rem;
+  }
+</style>
 
-<div class="alert alert-success" role="alert">
-    <h4 class="alert-heading">Well done!</h4>
-    <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-    <hr>
-    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+<!-- <h1>greeting</h1> -->
+<div class="container-fluid p-3">
+  <div class="card">
+    <div class="card-body">
+        <h2>인사말</h2>
+    </div>
+  </div>
 </div>
+
+

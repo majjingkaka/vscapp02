@@ -43,11 +43,24 @@
 
 </style>
 
+<style>
+    .blockquote{
+        background-color: #fff;
+        border-left: .7rem solid #fff;
+        margin: 1.5em .7rem;
+        padding: .5em .7rem;
+    }
+</style>
+    
+    
 
+<div class="container-fluid p-3">
 
-<div class="n-container np fff mg-lg-t20 ">
-
-
+    <div class="card">
+        <div class="card-body">
+            <h2>상세</h2>
+        </div>
+    </div>
     <div class="col-sm-10 col-xs-12 ">
 
         <div class="col-sm-12 col-xs-12 mg-sm-b50 mg-xs-b50">
@@ -89,14 +102,11 @@
             </form>
 
             <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:location.href='/noticeList'">목록으로</button>
+            
             <security:authorize access="hasRole('ADMIN')">
-                
+                <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:deleteAndModify('d');">삭제</button>
+                <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:deleteAndModify('m');">수정</button>
             </security:authorize>
-
-            <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:deleteAndModify('d');">삭제</button>
-            <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:deleteAndModify('m');">수정</button>
-            
-            
             <br><br>
 
         </div>
