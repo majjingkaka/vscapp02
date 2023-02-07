@@ -58,5 +58,9 @@ public class MainController{
         logger.debug("logout...");
     }
 
-
+    @RequestMapping(path = "use")
+    public String use() {
+        logger.debug("use...");
+        return "terms/use";
+    }
 }

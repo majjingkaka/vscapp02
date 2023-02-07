@@ -45,7 +45,7 @@
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.css">
 		<!-- summernote -->
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/summernote/summernote-bs4.min.css">
-		
+
 		<!-- jQuery -->
 		<script src="${pageContext.request.contextPath}/plugins/jquery/jquery.min.js"></script>
 		<!-- jQuery UI 1.11.4 -->

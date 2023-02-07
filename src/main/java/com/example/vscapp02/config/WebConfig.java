@@ -40,6 +40,9 @@ public class WebConfig implements WebMvcConfigurer{
 		registry.addResourceHandler("/ckeditor/**").addResourceLocations("classpath:/ckeditor/");
 		registry.addResourceHandler("/js/**").addResourceLocations("classpath:/js/");
 		registry.addResourceHandler("/upload/**").addResourceLocations("classpath:/upload/");
+		registry.addResourceHandler("/css/**").addResourceLocations("classpath:/css/");
+		registry.addResourceHandler("/docs/**").addResourceLocations("classpath:/docs/");
+		registry.addResourceHandler("/bootstrap/**").addResourceLocations("classpath:/bootstrap/");
 
         //registry.addResourceHandler("/images/**").addResourceLocations("/resources/images");
 		//registry.addResourceHandler("/css/**").addResourceLocations("/resources/css");
@@ -89,10 +92,10 @@ public class WebConfig implements WebMvcConfigurer{
 		return commonsMultipartResolver;
 	}
 
-	@Bean
-	public MessageSource messageSource() {
-		ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-		messageSource.setBasename("messages");
-		return messageSource;
-	}
+	// @Bean
+	// public MessageSource messageSource() {
+	// 	ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
+	// 	messageSource.setBasename("messages");
+	// 	return messageSource;
+	// }
 }

@@ -21,7 +21,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 //import com.example.vscapp02.common.CustomLoginFailHandler;
-import com.example.vscapp02.common.CustomLoginSuccessHandler;
+//import com.example.vscapp02.common.CustomLoginSuccessHandler;
 //import com.example.vscapp01.Components.JwtTokenProvider;
 import com.example.vscapp02.service.MemberServiceImpl;
 //https://nahwasa.com/entry/%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8-Spring-Security-%EA%B8%B0%EB%B3%B8-%EC%84%B8%ED%8C%85-%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8B%9C%ED%81%90%EB%A6%AC%ED%8B%B0
@@ -122,8 +122,9 @@ public class WebSecurityConfig{
 	public WebSecurityCustomizer webSecurityCustomizer() throws Exception {
         //해당 요청은 인증 대상에서 제외시킵니다.
 		return (web) -> web.ignoring()
-        //.antMatchers("/login") 토큰생성이 안되어서 설정하면안됨
+        //.antMatchers("/login") 토큰생성이 안되어서 설정하면안됨/화면이아닌 리소스만 작성하도록한다
         //.antMatchers("/signUp")
+        .antMatchers("/docs/**")
         .antMatchers("/css/**")
         .antMatchers("/js/**")
         .antMatchers("/resources/**")
@@ -174,9 +175,18 @@ public class WebSecurityConfig{
         http.authorizeRequests()
             
             .antMatchers("/").permitAll()
-            .antMatchers("/login", "/signUp", "/css/**", "/js/**", "/resources/**","/static/**", "/bootstrap/**").permitAll()
+            .antMatchers("/login", 
+                        "/signUp", 
+                        "/docs/**", 
+                        "/css/**", 
+                        "/js/**", 
+                        "/resources/**",
+                        "/static/**", 
+                        "/bootstrap/**"
+                        ).permitAll()
             .antMatchers("/api/**").permitAll()
-            .antMatchers("/admin/**").hasRole("ADMIN")
+            //.antMatchers("/admin/**").hasRole("ADMIN")
+            .antMatchers("/noticeRegForm").hasRole("ADMIN")
             //.antMatchers("/member/**").hasAnyRole("USER", "ADMIN")
 			//.antMatchers("/admin/**").hasRole("ADMIN")
             //.antMatchers("/member/**").authenticated()

@@ -25,7 +25,7 @@
     
     <div class="card">
         <div class="card-body">
-            <h2>QnA</h2>
+            <h2>FAQ</h2>
         </div>
       </div>
 

@@ -13,7 +13,20 @@
   <!-- <H1>갤러리</H1> -->
   <div class="card">
     <div class="card-body">
-        <h2>홈</h2>
+        <!-- <h2>홈</h2> -->
+
+
+        <div class="row no-gutters bg-light position-relative">
+          <div class="col-md-6 mb-md-0 p-md-4">
+            <img src="images/home/programming-593312_1920.jpg" class="w-100" alt="...">
+          </div>
+          <div class="col-md-6 position-static p-4 pl-md-0">
+            <h5 class="mt-0">Columns with stretched link</h5>
+            <p>Another instance of placeholder content for this other custom component. It is intended to mimic what some real-world content would look like, and we're using it here to give the component a bit of body and size.</p>
+            <!-- <a href="#" class="stretched-link">Go somewhere</a> -->
+          </div>
+        </div>
+
     </div>
   </div>
 
@@ -59,16 +72,7 @@
    -->
 
 
-  <div class="row no-gutters bg-light position-relative">
-    <div class="col-md-6 mb-md-0 p-md-4">
-      <img src="images/home/programming-593312_1920.jpg" class="w-100" alt="...">
-    </div>
-    <div class="col-md-6 position-static p-4 pl-md-0">
-      <h5 class="mt-0">Columns with stretched link</h5>
-      <p>Another instance of placeholder content for this other custom component. It is intended to mimic what some real-world content would look like, and we're using it here to give the component a bit of body and size.</p>
-      <!-- <a href="#" class="stretched-link">Go somewhere</a> -->
-    </div>
-  </div>
+  
 
 
 </div>

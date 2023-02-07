@@ -4,7 +4,7 @@
 
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
-      <img src="${pageContext.request.contextPath}/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="${pageContext.request.contextPath}/images/home/SaltCodingLogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">SaltCoding</span>
     </a>
 
@@ -157,7 +157,7 @@
               <li class="nav-item">
                 <a href="/question" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>QnA</p>
+                  <p>FAQ</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -174,7 +174,7 @@
               </li> -->
             </ul>
           </li>
-          <li class="nav-item menu-open">
+          <!--<li class="nav-item menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tree"></i>
               <p>
@@ -188,7 +188,7 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>자료실</p>
                 </a>
-              <!-- </li>
+              </li>
                <li class="nav-item">
                 <a href="login" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -230,9 +230,9 @@
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ribbons</p>
                 </a>
-              </li> -->
+              </li> 
             </ul>
-          </li>
+          </li>-->
           <!-- <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>

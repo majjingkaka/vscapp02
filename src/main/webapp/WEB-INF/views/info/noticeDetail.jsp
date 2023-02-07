@@ -62,35 +62,46 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label class="control-label" for="title">제목 :</label>
-        <div class="">
-            <p class="form-control-static" id="title">${noticeDetail.title}</p>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label" for="inpDt">작성일 :</label>
-        <div class="">
-            <p class="form-control-static" id="inpDt"><fmt:formatDate value="${noticeDetail.inpDt}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
-        </div>
-    </div>
-
-    <c:if test="${null ne noticeDetail.fileNameUpload}">
-        <div class="form-group">
-            <label class="control-label" for="uploadimg">첨부이미지 :</label>
-            <div class="">
-                <img id="uploadimg" src="${imgPath}${noticeDetail.fileNameUpload}" />
+    
+    <div class="card">
+        <div class="card-body">
+            
+            <div class="form-group">
+                <label class="control-label" for="title">제목 :</label>
+                <div class="">
+                    <p class="form-control-static" id="title">${noticeDetail.title}</p>
+                </div>
             </div>
-        </div>
-    </c:if>
+        
+            <div class="form-group">
+                <label class="control-label" for="inpDt">작성일 :</label>
+                <div class="">
+                    <p class="form-control-static" id="inpDt"><fmt:formatDate value="${noticeDetail.inpDt}" pattern="yyyy-MM-dd HH:mm:ss"/></p>
+                </div>
+            </div>
+        
+            <c:if test="${null ne noticeDetail.fileNameUpload}">
+                <div class="form-group">
+                    <label class="control-label" for="uploadimg">첨부이미지 :</label>
+                    <div class="">
+                        <img id="uploadimg" src="${imgPath}${noticeDetail.fileNameUpload}" />
+                    </div>
+                </div>
+            </c:if>
+        
+            <div class="form-group">
+                <label class="control-label" for="title">내용 :</label>
+                <div class="">
+                    <p class="form-control-static" id="content">${noticeDetail.content}</p>
+                </div>
+            </div>
 
-    <div class="form-group">
-        <label class="control-label" for="title">내용 :</label>
-        <div class="">
-            <p class="form-control-static" id="content">${noticeDetail.content}</p>
         </div>
     </div>
+        
+    
+    
+
 
     <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:location.href='/noticeList'">목록으로</button>
             
