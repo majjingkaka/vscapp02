@@ -75,6 +75,39 @@
             </div>
           </div>
         </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFour">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                4. 추가 교재비가 있나요?
+              </button>
+            </h2>
+          </div>
+          <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+            <div class="card-body">
+              교육용 노트북과 차수에 따른 학습지가 제공되어 추가로 발생되는 교재비는 없습니다.
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header" id="headingFive">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                5. 수업료 결재 방식은 어떻게 하나요?
+              </button>
+            </h2>
+          </div>
+          <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+            <div class="card-body">
+              비대면 간편결제방법인 결재선생을 통해 모바일로 카톡또는 문자로 발송하여 이루어지게됩니다.<br>
+              <!-- 결제하기위해 학생편으로 절달받지 않고, 부모님들의 발걸음 수고를 고려한 편리한 결재방식입니다. -->
+            </div>
+          </div>
+        </div>
+
+
       </div>
 <!--       
       <div class="card">

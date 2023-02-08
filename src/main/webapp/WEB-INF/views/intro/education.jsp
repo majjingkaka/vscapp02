@@ -47,7 +47,10 @@
                   </tr>
                   <tr>
                     <td>설명</td>
-                    <td>책검토중...</td>
+                    <td>코딩에 대한 개념을 이해하고, 블록 코딩을 조립해 직접 만들어가는 과정입니다.<br>
+                    개념을 익힌후, 다양한 학습을 통해 명령블록의 동작 원리를 익히게 됩니다.<br>
+                    스스로 알고리즘을 구성하고 연습을 통해 컴퓨팅 사고력이 향상됩니다.
+                    </td>
                   </tr>
                   <tr>
                     <td>수업기간</td>
@@ -55,10 +58,122 @@
                   </tr>
                   <tr>
                     <td>수업료(월)</td>
-                    <td></td>
+                    <td>96,000원</td>
                   </tr>
                 </tbody>
               </table>
+              
+              <br>
+
+              <div class="card-deck">
+                <div class="card">
+                  <img src="${pageContext.request.contextPath}/images/scratch/scratch1_1.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">1차시</h5>
+                    <p class="card-text">신비로운 우주 여행을 떠나요! +기초개념설명</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  </div>
+                </div>
+                <div class="card">
+                  <img src="${pageContext.request.contextPath}/images/scratch/scratch1_2.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">2차시</h5>
+                    <p class="card-text">음악에 맞춰 춤을 춰요</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  </div>
+                </div>
+                <div class="card">
+                  <img src="${pageContext.request.contextPath}/images/scratch/scratch1_3.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">3차시</h5>
+                    <p class="card-text">바닷속 열쇠를 찾아라!</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  </div>
+                </div>
+                <div class="card">
+                  <img src="${pageContext.request.contextPath}/images/scratch/scratch1_4.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">4차시</h5>
+                    <p class="card-text">미로를 탈출해 볼까요?</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  </div>
+                </div>
+              </div>
+
+              <br>
+
+              <div class="card-deck">
+                <div class="card">
+                  <img src="${pageContext.request.contextPath}/images/scratch/scratch1_5.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">5차시</h5>
+                    <p class="card-text">블랙홀에서 탈출하세요!</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  </div>
+                </div>
+                <div class="card">
+                  <img src="${pageContext.request.contextPath}/images/scratch/scratch1_6.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">6차시</h5>
+                    <p class="card-text">공룡들의 릴레이 경주! 반복해 이동해요</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  </div>
+                </div>
+                <div class="card">
+                  <img src="${pageContext.request.contextPath}/images/scratch/scratch1_7.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">7차시</h5>
+                    <p class="card-text">유령과 박쥐를 잡아 보세요!</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  </div>
+                </div>
+                <div class="card">
+                  <img src="${pageContext.request.contextPath}/images/scratch/scratch1_8.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">8차시</h5>
+                    <p class="card-text">알쏭달쏭 암산 게임을 해봐요</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  </div>
+                </div>
+              </div>
+
+
+              <br>
+
+              <div class="card-deck">
+                <div class="card">
+                  <img src="${pageContext.request.contextPath}/images/scratch/scratch1_9.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">9차시</h5>
+                    <p class="card-text">혼자서하는 2인용 점프 게임</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  </div>
+                </div>
+                <div class="card">
+                  <img src="${pageContext.request.contextPath}/images/scratch/scratch1_10.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">10차시</h5>
+                    <p class="card-text">내가 만드는 영어 단어장</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  </div>
+                </div>
+                <div class="card">
+                  <img src="${pageContext.request.contextPath}/images/scratch/scratch1_11.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">11차시</h5>
+                    <p class="card-text">나만의 방법으로 그림을 그려요</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  </div>
+                </div>
+                <div class="card">
+                  <img src="${pageContext.request.contextPath}/images/scratch/scratch1_12.png" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">12차시</h5>
+                    <p class="card-text">야구공을 멀리멀리~ 홈런!</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  </div>
+                </div>
+              </div>
 
           </div>
         </div>

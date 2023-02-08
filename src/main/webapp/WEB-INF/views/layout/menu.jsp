@@ -81,7 +81,7 @@
 
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-school"></i>
               <p>
                 소개
                 <i class="fas fa-angle-left right"></i>
@@ -91,32 +91,32 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/greeting" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-user-tie"></i>
                   <p>인사말</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/coding" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-keyboard"></i>
                   <p>코딩이란</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/education" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-book-open"></i>
                   <p>교육안내<small></small></p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/classplan" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-book-reader"></i>
                   <p>수업안내<small></small></p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/Entreprise" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>문의처</small></p>
+                  <i class="nav-icon fas fa-phone-alt "></i>
+                  <p>문의처</p>
                 </a>
               </li>
               <!-- <li class="nav-item">
@@ -141,7 +141,7 @@
           </li>
           <li class="nav-item menu-open">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-globe"></i>
               <p>
                 소식
                 <i class="right fas fa-angle-left"></i>
@@ -150,19 +150,19 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/noticeList" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-dove"></i>
                   <p>공지</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/question" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-pen"></i>
                   <p>FAQ</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/gallery" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="nav-icon fas fa-photo-video"></i>
                   <p>갤러리</p>
                 </a>
               </li>
