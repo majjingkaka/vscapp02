@@ -7,7 +7,7 @@
 
 
   <definition name="base" template="/WEB-INF/views/layout/layout.jsp">
-    <put-attribute name="title" value="소금코딩" />
+    <put-attribute name="title" value="솔트코딩" />
     <put-attribute name="header" value="/WEB-INF/views/layout/header.jsp" />
     <put-attribute name="menu" value="/WEB-INF/views/layout/menu.jsp" />
     <put-attribute name="content" value="/WEB-INF/views/layout/content.jsp" />

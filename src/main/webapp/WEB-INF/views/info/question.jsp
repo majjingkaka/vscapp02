@@ -34,13 +34,14 @@
           <div class="card-header" id="headingOne">
             <h2 class="mb-0">
               <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Collapsible Group Item #1
+                1. 코딩수업은 어떤 과목이 있나요?
               </button>
             </h2>
           </div>
           <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
-              Some placeholder content for the first accordion panel. This panel is shown by default, thanks to the <code>.show</code> class.
+              현재 스크래치와 로봇프로그램을 다루고있으며 추후 코딩관련 과목이 추가될 예정입니다.<br>
+              [교육안내] 메뉴를 참고해주세요.
             </div>
           </div>
         </div>
@@ -49,13 +50,13 @@
           <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
               <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Collapsible Group Item #2
+                2. 수업시간은 언제인가요?
               </button>
             </h2>
           </div>
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
-              Some placeholder content for the second accordion panel. This panel is hidden by default.
+              초등학생은 하교 후 14시부터 진행될 예정이며, 모집상황에 따라 시간이 변동될 수 있습니다.
             </div>
           </div>
         </div>
@@ -64,13 +65,13 @@
           <div class="card-header" id="headingThree">
             <h2 class="mb-0">
               <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Collapsible Group Item #3
+                3. 개인사유로 수업에 빠졌을때 보강이 이루어지나요?
               </button>
             </h2>
           </div>
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
             <div class="card-body">
-              And lastly, the placeholder content for the third and final accordion panel. This panel is hidden by default.
+              수업에 미참석한 학생과 적당한 시간을 정해 보강이 진행 될 예정입니다.
             </div>
           </div>
         </div>

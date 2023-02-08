@@ -16,5 +16,37 @@
         <h2>문의처</h2>
     </div>
   </div>
+
+  <div class="card">
+    <div class="card-body">
+        <!-- <h2>수업안내</h2> -->
+
+
+      <div class="form-group">
+        <label class="control-label" for="tel">전화상담 :</label>
+        <div class="">
+            <p class="form-control-static" id="tel"><a href="tel:010-9389-8379" target="_self">010-9389-8379</a></p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="instagram">인스타그램 :</label>
+        <div class="">
+            <p class="form-control-static" id="instagram">개설중...</p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="kakaotalk">카카오톡 :</label>
+        <div class="">
+            <p class="form-control-static" id="kakaotalk">개설중...</p>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
 </div>
 

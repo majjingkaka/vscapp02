@@ -17,12 +17,44 @@
 
 
         <div class="row no-gutters bg-light position-relative">
+          
           <div class="col-md-6 mb-md-0 p-md-4">
-            <img src="images/home/programming-593312_1920.jpg" class="w-100" alt="...">
+            <!-- <img src="${pageContext.request.contextPath}/images/home/programming-593312_1920.jpg" class="w-100" alt="..."> -->
+            <img src="${pageContext.request.contextPath}/images/home/kids-1093758_1920.jpg" class="w-100" alt="...">
           </div>
+
           <div class="col-md-6 position-static p-4 pl-md-0">
-            <h5 class="mt-0">Columns with stretched link</h5>
-            <p>Another instance of placeholder content for this other custom component. It is intended to mimic what some real-world content would look like, and we're using it here to give the component a bit of body and size.</p>
+            <!-- <h5 class="mt-0">SoltCoding</h5> -->
+            <!-- <p>Another instance of placeholder content for this other custom component. It is intended to mimic what some real-world content would look like, and we're using it here to give the component a bit of body and size.</p> -->
+
+            <P>음식에 <strong>소금</strong>이 꼭 필요한 것처럼<br>
+              이제 우리 생활에는 코딩이 필요합니다!</P>
+
+            <figure class="">
+              <P><strong class="h1">S</strong> earch <small class="text-muted"><em>- 검색하고</em></small></P>
+              <!-- <figcaption class="blockquote-footer">검색하고</figcaption> -->
+            </figure>
+            
+            <figure class="">
+              <P><strong class="h1">A</strong> nalyze <small class="text-muted"><em>- 분석하고</em></small></P>
+              <!-- <figcaption class="blockquote-footer">분석하고</figcaption> -->
+            </figure>
+
+            <figure class="">
+              <P><strong class="h1">L</strong> earn <small class="text-muted"><em>- 배우고</em></small></P>
+              <!-- <figcaption class="blockquote-footer">배우고</figcaption> -->
+            </figure>
+
+            <figure class="">
+              <P><strong class="h1">T</strong> hink <small class="text-muted"><em>- 생각하고</em></small></P>
+              <!-- <figcaption class="blockquote-footer">생각하고</figcaption> -->
+            </figure>
+
+            <p><strong>SALT</strong> 코딩은<br>
+              문제를 찾아보고 분석하는 방식을 배우고<br>
+              생각하는 코딩을 교육합니다.</p>
+
+
             <!-- <a href="#" class="stretched-link">Go somewhere</a> -->
           </div>
         </div>

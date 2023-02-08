@@ -30,7 +30,7 @@
       </li>
       <li class="nav-item">
         <!-- <a class="nav-link" data-toggle="tab" href="#standby">준비중</a> -->
-        <button class="nav-link" id="standby-tab" data-toggle="tab" data-target="#standby" type="button" role="tab" aria-controls="standby" aria-selected="false">Standby</button>
+        <button class="nav-link" id="standby-tab" data-toggle="tab" data-target="#standby" type="button" role="tab" aria-controls="standby" aria-selected="false">StandBy</button>
       </li>
       <!-- <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
@@ -51,21 +51,21 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="images/home/cap-2923682_1920.jpg" class="d-block w-100" alt="...">
+              <img src="${pageContext.request.contextPath}/images/home/cap-2923682_1920.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
               </div>
             </div>
             <div class="carousel-item">
-              <img src="images/home/girl-511883_1920.jpg" class="d-block w-100" alt="...">
+              <img src="${pageContext.request.contextPath}/images/home/girl-511883_1920.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>Some representative placeholder content for the second slide.</p>
               </div>
             </div>
             <div class="carousel-item">
-              <img src="images/home/kids-1093758_1920.jpg" class="d-block w-100" alt="...">
+              <img src="${pageContext.request.contextPath}/images/home/kids-1093758_1920.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5>Third slide label</h5>
                 <p>Some representative placeholder content for the third slide.</p>
@@ -93,7 +93,7 @@
   
       </div>
       <div class="tab-pane fade" id="standby" role="tabpanel" aria-labelledby="profile-tab">
-        <p>Standby...</p>
+        <p>StandBy...</p>
       </div>
       <!-- <div class="tab-pane fade" id="zxc">
         <p>Curabitur dignissim quis nunc vitae laoreet. Etiam ut mattis leo, vel fermentum tellus. Sed sagittis rhoncus venenatis. Quisque commodo consectetur faucibus. Aenean eget ultricies justo.</p>
