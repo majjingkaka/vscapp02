@@ -308,4 +308,27 @@ public class MemberServiceImpl implements MemberService{
     }
      */
 
+    
+    /* public void resetPassword(Member member) {
+        member.setPassword(passwordEncoder.encode(member.getPassword()));
+        int result = memberRepository.updatePassword(member);
+    }
+
+    public void refreshUser(Member member){
+        SpringUser springUser = (SpringUser) loadUserByUsername(member.getMemberId());
+        UsernamePasswordAuthenticationToken newAuth = new UsernamePasswordAuthenticationToken(springUser.getUsername(), springUser.getPassword(), springUser.getAuthorities());
+        newAuth.setDetails(springUser);
+        SecurityContextHolder.getContext().setAuthentication(newAuth);
+    }
+
+    public boolean isExistMemberId(String memberId){
+        return memberRepository.selectMemberIdByMemberId(memberId) != null ||
+        withdrawalRepository.selectMemberIdByMemberId(memberId) != null;
+    }
+
+    public boolean validatePassword(String password) {
+        Member member = Util.getMember();
+        return passwordEncoder.matches(password, member.getPassword());
+    } */
+
 }

@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import java.security.Principal;
 //import javax.servlet.ServletContext;
 //import javax.servlet.http.HttpServletRequest;
 //import java.io.File;
@@ -54,11 +55,22 @@ public class NoticeController {
     @RequestMapping(path = "/noticeList", method = RequestMethod.GET)
     public String noticeList(Notice notice,
                              Model model,
+                             Principal principal,
                              @RequestParam(defaultValue = "")String searchType,
                              @RequestParam(defaultValue = "")String searchContent,
                              @RequestParam(defaultValue = "1")int page){
         logger.debug("### NoticeController noticeList call...");
         
+        if(principal != null){
+            if(!principal.getName().isEmpty() && principal.getName().equals("admin")){
+                notice.setContentOpen(null);
+            }else{
+                notice.setContentOpen(true);
+            }
+        }else{
+            notice.setContentOpen(true);
+        }
+
         // 검색조건 세팅
         // if(!StringUtils.isEmpty(searchType)){
         //     if(searchType.equals("searchNum")){
@@ -111,7 +123,10 @@ public class NoticeController {
     // 등록처리 //produces = "application/json"
     @RequestMapping(path = "/noticeReg", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, Object> noticeReg(Model model, Notice notice, MultipartHttpServletRequest request) {
+    public Map<String, Object> noticeReg(Model model, 
+                                        Notice notice, 
+                                        MultipartHttpServletRequest request,
+                                        Principal principal) {
         Map<String, Object> result = new HashMap<String, Object>();
         Iterator<String> itr =  request.getFileNames();
 
@@ -140,8 +155,16 @@ public class NoticeController {
         notice.setContent(StringEscapeUtils.escapeHtml4(notice.getContent()));
         //notice.setcType("notice"); // 컬럼타입
         
-        if(notice.getWriterId() == null || notice.getWriterId().isEmpty()){
-            notice.setWriterId("nologin");
+        // if(notice.getWriterId() == null || notice.getWriterId().isEmpty()){
+        //     notice.setWriterId("nologin");
+        // }
+        
+        if(principal != null){
+            if(principal.getName().isEmpty()){
+                notice.setWriterId("nologin");
+            }else{
+                notice.setWriterId(principal.getName());
+            }
         }
 
         if(notice.getNoticeNo() != 0 ){

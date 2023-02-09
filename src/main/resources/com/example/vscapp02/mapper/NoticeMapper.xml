@@ -7,6 +7,7 @@
         <id column="writer_id" property="writerId"/>
         <id column="reg_type" property="regType"/>
         <id column="header_type" property="headerType"/>
+        <id column="content_open" property="contentOpen"/>
     </resultMap>
 
     <select id="selectHeaderNotices" parameterType="map" resultMap="NoticeMap">
@@ -23,11 +24,15 @@
             file_name_origin AS fileNameOrigin,
             file_name_upload AS fileNameUpload,
             file_type AS fileType,
+            content_open,
             inpdt,
             moddt
         FROM fa_notice
         WHERE 1=1
         AND header_type = #{notice.headerType}
+        <if test="notice.contentOpen != null and notice.contentOpen !=''">
+            AND content_open = '1'
+        </if>
         ORDER BY inpdt DESC
     </select>
 
@@ -45,10 +50,14 @@
             file_name_origin AS fileNameOrigin,
             file_name_upload AS fileNameUpload,
             file_type AS fileType,
+            content_open,
             inpdt,
             moddt
             FROM fa_notice
             WHERE 1=1
+            <if test="notice.contentOpen != null and notice.contentOpen !=''">
+                AND content_open = '1'
+            </if>
             <if test="notice.writerId != null and notice.writerId !=''">
                 AND writer_id = #{notice.writerId}
             </if>
@@ -70,14 +79,20 @@
         SELECT COUNT(*)
         FROM fa_notice
         WHERE 1=1
+        <if test="notice.contentOpen != null and notice.contentOpen !=''">
+            AND content_open = '1'
+        </if>
+        <if test="notice.writerId != null and notice.writerId !=''">
+            AND writer_id = #{notice.writerId}
+        </if>
         <if test="notice.noticeNo != null and notice.noticeNo !=''">
             AND notice_no = #{notice.noticeNo}
         </if>
         <if test="notice.title != null and notice.title !=''">
             AND title LIKE CONCAT('%',#{notice.title},'%')
         </if>
-        <if test="notice.name != null and notice.name !=''">
-            AND name LIKE CONCAT('%',#{notice.name},'%')
+        <if test="notice.content != null and notice.content !=''">
+            AND content LIKE CONCAT('%',#{notice.content},'%')
         </if>
         AND header_type = #{notice.headerType}
     </select>
@@ -96,6 +111,7 @@
             file_name_origin AS fileNameOrigin,
             file_name_upload AS fileNameUpload,
             file_type AS fileType,
+            content_open,
             inpdt,
             moddt
         FROM fa_notice
@@ -104,8 +120,14 @@
 
     <update id="updateNotice">
         UPDATE fa_notice SET
-        title = #{notice.title},
-        content = #{notice.content}
+            title = #{notice.title},
+            content = #{notice.content},
+            file_size = #{notice.fileSize}, 
+            file_name_origin = #{notice.fileNameOrigin}, 
+            file_name_upload = #{notice.fileNameUpload}, 
+            file_type = #{notice.fileType}, 
+            header_type = #{notice.headerType}, 
+            content_open = #{notice.contentOpen}
         WHERE notice_no = #{notice.noticeNo}
     </update>
 
