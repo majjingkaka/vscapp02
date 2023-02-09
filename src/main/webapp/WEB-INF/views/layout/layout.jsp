@@ -10,16 +10,23 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-			
+		<meta name="subject" content="솔트코딩">
+		<meta name="description" content="스크래치 로봇 블록코딩 초등코딩">
+		<meta name="copyright" content="솔트코딩">
+		<meta name="title" content="솔트코딩">
+		<meta name="apple-mobile-web-app-title" content="솔트코딩">
+		<meta name="application-name" content="솔트코딩">
+
 		<meta name="_csrf" content="${_csrf.token}"/>
 		<meta name="_csrf_header" content="${_csrf.headerName}"/>
-	
+
 		<link rel="icon" href="${pageContext.request.contextPath}/images/home/SaltCodingLogo.png" type="image/x-icon" sizes="16x16">
 		<link rel="icon" href="${pageContext.request.contextPath}/images/home/SaltCodingLogo.png" type="image/x-icon" sizes="32x32">
 		<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/home/SaltCodingLogo.png" type="image/x-icon" />
+		<link rel="canonical" href="http://saltcoding.com">
 
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="http://saltcoding.com">
@@ -32,12 +39,24 @@
 		<meta name="naver-site-verification" content="eecb87d08c971207921a7be31cd118307c894393" />
 		<meta name="google-site-verification" content="Nt1GVEx23BW0LRxglzDZre9CPqjxFBxAKRoeR95CPY0" />
 		
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="솔트코딩">
+		<meta property="og:site_name" content="솔트코딩">
+		<meta property="og:description" content="스크래치 로봇 블록코딩 초등코딩">
+		<meta property="og:url" content="http://saltcoding.com">
+		<meta property="og:image" content="${pageContext.request.contextPath}/images/home/kids-1093758_1920.jpg">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="630">
 		
 		
-		<!-- <title><t:getAsString name="title" /></title> -->
-		<!-- <meta charset="utf-8"> -->
-		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-		<!-- <title>AdminLTE 3 | Dashboard</title> -->
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="솔트코딩">
+		<meta name="twitter:site" content="솔트코딩">
+		<meta name="twitter:description" content="스크래치 로봇 블록코딩 초등코딩">
+		<meta name="twitter:image" content="${pageContext.request.contextPath}/images/home/kids-1093758_1920.jpg">
+		<meta name="twitter:domain" content="사이트 명">
+
+		<title><t:getAsString name="title" /></title>
 	  
 		<!-- Google Font: Source Sans Pro -->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -100,7 +119,7 @@
 	</head>
 		
 
-		<title><t:getAsString name="title" /></title>
+		
 		
 		<body class="hold-transition sidebar-mini layout-fixed">
 			<section class="content">
