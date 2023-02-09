@@ -150,7 +150,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/noticeList" class="nav-link">
-                  <i class="nav-icon fas fa-dove"></i>
+                  <i class="nav-icon fas fa-edit"></i>
                   <p>공지</p>
                 </a>
               </li>
@@ -162,7 +162,7 @@
               </li>
               <li class="nav-item">
                 <a href="/gallery" class="nav-link">
-                  <i class="nav-icon fas fa-photo-video"></i>
+                  <i class="nav-icon fas fa-image"></i>
                   <p>갤러리</p>
                 </a>
               </li>

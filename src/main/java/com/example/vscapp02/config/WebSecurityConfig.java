@@ -1,5 +1,8 @@
 package com.example.vscapp02.config;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +12,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.core.session.SessionRegistry;
+import org.springframework.security.core.session.SessionRegistryImpl;
 //import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,6 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 //import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.context.SecurityContextPersistenceFilter;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
@@ -161,11 +167,19 @@ public class WebSecurityConfig{
 	 		.usernameParameter("username")
 	 		.passwordParameter("password")
             .loginProcessingUrl("/loginProcess")
+            .successHandler((request, response, authentication) -> {
+                response.sendRedirect("/");
+            })
+            .failureHandler((request, response, exception) -> {
+                response.sendRedirect("/login");
+                // 참고로 스프링 시큐리티가 제공하는 로그인 페이지 주소는
+                // "/login"이다.
+            });
             //.failureForwardUrl("/asset_denied")
             //.defaultSuccessUrl("/home")
             //.defaultSuccessUrl("/",true)
-            .defaultSuccessUrl("/")
-            .failureUrl("/login"); //로그인 실패인 경우 호출할 주소 지정 //Fail?error=true
+            //.defaultSuccessUrl("/")
+            //.failureUrl("/login"); //로그인 실패인 경우 호출할 주소 지정 //Fail?error=true
             //.failureHandler(faileHandler) //https://doing7.tistory.com/16
             //.successHandler(handler);
             //.permitAll();
@@ -208,8 +222,20 @@ public class WebSecurityConfig{
         
 
 	 	http.logout()//로그아웃설정
-	 		.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))//로그아웃키워드
+            .logoutUrl("/logout")
+	 		//.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))//로그아웃키워드
 	 		.logoutSuccessUrl("/")//로그아웃이후 이동경로
+            .addLogoutHandler((request, response, authentication) -> { 
+                // 사실 굳이 내가 세션 무효화하지 않아도 됨. 
+                // LogoutFilter가 내부적으로 해줌.
+                HttpSession session = request.getSession();
+                if (session != null) {
+                    session.invalidate();
+                }
+            })  // 로그아웃 핸들러 추가
+            .logoutSuccessHandler((request, response, authentication) -> {
+                response.sendRedirect("/login");
+            }) // 로그아웃 성공 핸들러
 	 		.invalidateHttpSession(true); //세션삭제여부
             //.permitAll();
         
@@ -235,14 +261,23 @@ public class WebSecurityConfig{
         http.sessionManagement() //중복로그인 관리
             .maximumSessions(1) //100개 허용 중복 로그인 가능한 세션 수 1로 지정해야, 중복 로그인을 방지할 수 있다. // 최대 접속수를 1개로 제한한다.
             .expiredUrl("/login?expire=true") //처리 url // 세션이 제한 되었을 경우 리다이렉트 할 URL
-            .maxSessionsPreventsLogin(true); //두번째 로그인한 사람은 거부하겠다
-            //.sessionRegistry(sessionRegistry); //중복로그인 체크
+            .maxSessionsPreventsLogin(true) //두번째 로그인한 사람은 거부하겠다
+            .sessionRegistry(sessionRegistry()); //중복로그인 체크
 
 
         return http.build();
     }
 
+    @Bean
+    public SessionRegistry sessionRegistry() {
+        return new SessionRegistryImpl();
+    }// Register HttpSessionEventPublisher
 
+    @Bean
+    public static ServletListenerRegistrationBean httpSessionEventPublisher() {
+        return new ServletListenerRegistrationBean(new HttpSessionEventPublisher());
+    }
+    
     public CharacterEncodingFilter characterEncodingFilter() {
         CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
         characterEncodingFilter.setEncoding("UTF-8");
