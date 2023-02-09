@@ -17,12 +17,26 @@
 		<meta name="_csrf" content="${_csrf.token}"/>
 		<meta name="_csrf_header" content="${_csrf.headerName}"/>
 	
-	
-	
+		<link rel="icon" href="${pageContext.request.contextPath}/images/home/SaltCodingLogo.png" type="image/x-icon" sizes="16x16">
+		<link rel="icon" href="${pageContext.request.contextPath}/images/home/SaltCodingLogo.png" type="image/x-icon" sizes="32x32">
+		<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/home/SaltCodingLogo.png" type="image/x-icon" />
+
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="http://saltcoding.com">
+		<meta property="og:title" content="솔트코딩">
+		<meta property="og:image" content="${pageContext.request.contextPath}/images/home/kids-1093758_1920.jpg">
+		<meta property="og:description" content="스크래치 로봇 블록코딩 초등코딩">
+		<meta property="og:site_name" content="솔트코딩" />
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="630">
+		<meta name="naver-site-verification" content="eecb87d08c971207921a7be31cd118307c894393" />
+		<meta name="google-site-verification" content="Nt1GVEx23BW0LRxglzDZre9CPqjxFBxAKRoeR95CPY0" />
+		
+		
+		
 		<!-- <title><t:getAsString name="title" /></title> -->
-	
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- <meta charset="utf-8"> -->
+		<!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
 		<!-- <title>AdminLTE 3 | Dashboard</title> -->
 	  
 		<!-- Google Font: Source Sans Pro -->
