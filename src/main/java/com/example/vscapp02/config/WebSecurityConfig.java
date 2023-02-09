@@ -262,12 +262,14 @@ public class WebSecurityConfig{
             .maximumSessions(1) //100개 허용 중복 로그인 가능한 세션 수 1로 지정해야, 중복 로그인을 방지할 수 있다. // 최대 접속수를 1개로 제한한다.
             .expiredUrl("/login?expire=true") //처리 url // 세션이 제한 되었을 경우 리다이렉트 할 URL
             .maxSessionsPreventsLogin(true) //두번째 로그인한 사람은 거부하겠다
-            .sessionRegistry(sessionRegistry()); //중복로그인 체크
+            .sessionRegistry(sessionRegistry()); //중복로그인 체크 sessionRegistry메서드추가
 
 
         return http.build();
     }
 
+    //세션로그인문제로 추가함 다른방법으로는 버전업조치해야한다고함
+    //현상 한번로그인하고 두번째로그인이 정상으로 되지않음
     @Bean
     public SessionRegistry sessionRegistry() {
         return new SessionRegistryImpl();
