@@ -26,12 +26,15 @@
       <li class="nav-item" role="presentation">
         <!-- <a class="nav-link active" data-toggle="tab" href="#studyroom">공부방</a> -->
         <!-- <a class="nav-link active" data-toggle="tab" href="#qwe">QWE</a> -->
-        <button class="nav-link active" id="studyroom-tab" data-toggle="tab" data-target="#studyroom" type="button" role="tab" aria-controls="studyroom" aria-selected="true">StudyRoom</button>
+        <button class="nav-link active" id="studyroom-tab" data-toggle="tab" data-target="#studyroom" type="button" role="tab" aria-controls="studyroom" aria-selected="true">내부</button>
       </li>
-      <li class="nav-item">
+      
+      <!-- <li class="nav-item"> -->
         <!-- <a class="nav-link" data-toggle="tab" href="#standby">준비중</a> -->
-        <button class="nav-link" id="standby-tab" data-toggle="tab" data-target="#standby" type="button" role="tab" aria-controls="standby" aria-selected="false">StandBy</button>
-      </li>
+        <!-- <button class="nav-link" id="standby-tab" data-toggle="tab" data-target="#standby" type="button" role="tab" aria-controls="standby" aria-selected="false">StandBy</button> -->
+      <!-- </li> -->
+
+
       <!-- <li class="nav-item">
         <a class="nav-link" href="#">Link</a>
       </li>
@@ -48,29 +51,31 @@
             <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
             <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="${pageContext.request.contextPath}/images/home/cap-2923682_1920.jpg" class="d-block w-100" alt="...">
+              <img src="${pageContext.request.contextPath}/images/gallery/inside_com_1.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
+                <!-- <h5>First slide label</h5> -->
+                <!-- <p>Some representative placeholder content for the first slide.</p> -->
               </div>
             </div>
             <div class="carousel-item">
-              <img src="${pageContext.request.contextPath}/images/home/girl-511883_1920.jpg" class="d-block w-100" alt="...">
+              <img src="${pageContext.request.contextPath}/images/gallery/inside_com_2.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
+                <!-- <h5>Second slide label</h5> -->
+                <!-- <p>Some representative placeholder content for the second slide.</p> -->
               </div>
             </div>
             <div class="carousel-item">
-              <img src="${pageContext.request.contextPath}/images/home/kids-1093758_1920.jpg" class="d-block w-100" alt="...">
+              <img src="${pageContext.request.contextPath}/images/gallery/inside_com_3.jpg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
+                <!-- <h5>Third slide label</h5> -->
+                <!-- <p>Some representative placeholder content for the third slide.</p> -->
               </div>
             </div>
+
           </div>
           <button class="carousel-control-prev" type="button" data-target="#carouselExampleCaptions" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -92,9 +97,12 @@
         -->
   
       </div>
+
       <div class="tab-pane fade" id="standby" role="tabpanel" aria-labelledby="profile-tab">
         <p>StandBy...</p>
       </div>
+
+      
       <!-- <div class="tab-pane fade" id="zxc">
         <p>Curabitur dignissim quis nunc vitae laoreet. Etiam ut mattis leo, vel fermentum tellus. Sed sagittis rhoncus venenatis. Quisque commodo consectetur faucibus. Aenean eget ultricies justo.</p>
       </div> -->
