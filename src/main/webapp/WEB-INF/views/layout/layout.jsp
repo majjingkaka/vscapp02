@@ -37,6 +37,7 @@
 		<meta property="og:image:width" content="1200">
 		<meta property="og:image:height" content="630">
 		<meta name="naver-site-verification" content="eecb87d08c971207921a7be31cd118307c894393" />
+		<meta name="naver-site-verification" content="801f8aba79f5ccbb17a97c279c055d8b17f6473b" />
 		<meta name="google-site-verification" content="Nt1GVEx23BW0LRxglzDZre9CPqjxFBxAKRoeR95CPY0" />
 		
 		<meta property="og:type" content="website">
