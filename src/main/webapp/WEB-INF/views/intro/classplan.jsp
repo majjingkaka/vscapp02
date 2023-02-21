@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" style="font-size: 15px;">
     <div class="card-body">
         
       <table class="table table-bordered">

@@ -37,7 +37,7 @@
         <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
     </blockquote> -->
 
-    <div class="card">
+    <div class="card" style="font-size: 15px;">
         <div class="card-body">
             
             <!-- <strong>공지사항</strong> -->
@@ -112,14 +112,14 @@
                 <ul class="pagination justify-content-end">
                     <c:if test="${pagerInfo.startPageIndex > pagerInfo.blockPage}">
                         <li class="page-item">
-                            <a class="paging-type page-link" href="javascript:goPage(${pagerInfo.startPageIndex -pagerInfo.blockPage});" aria-label="Prev"><span aria-hidden="true">Previous</span></a>
+                            <a class="paging-type page-link btn-sm" href="javascript:goPage(${pagerInfo.startPageIndex -pagerInfo.blockPage});" aria-label="Prev"><span aria-hidden="true">Previous</span></a>
                             <!-- <a class="page-link">Previous</a> -->
                         </li>
                     </c:if>
 
                     <c:forEach begin="${pagerInfo.startPageIndex}" end="${pagerInfo.endPageIndex}" var="index">
                         <li class="${pagerInfo.currentPage== index ? 'active':''} page-item">
-                            <a class="paging-type page-link" href="javascript:goPage(${index});">${index}</a>
+                            <a class="paging-type page-link btn-sm" href="javascript:goPage(${index});">${index}</a>
                         </li>
                     </c:forEach>
 
@@ -129,7 +129,7 @@
 
                     <c:if test="${pagerInfo.endPageIndex < pagerInfo.pageTotal}">
                         <li class="page-item">
-                            <a class="paging-type page-link" href="javascript:goPage(${pagerInfo.endPageIndex + 1});" aria-label="Next"><span aria-hidden="true">Next</span></a>
+                            <a class="paging-type page-link btn-sm" href="javascript:goPage(${pagerInfo.endPageIndex + 1});" aria-label="Next"><span aria-hidden="true">Next</span></a>
                             <!-- <a class="page-link" href="#">Next</a> -->
                         </li>
                     </c:if>

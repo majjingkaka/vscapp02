@@ -116,6 +116,7 @@
 		<!-- <script src="${pageContext.request.contextPath}/dist/js/pages/dashboard.js"></script> -->
 		<script src="${pageContext.request.contextPath}/plugins/jquery-validation/jquery.validate.min.js"></script>
 
+		<script src="${pageContext.request.contextPath}/js/datetime.js"></script>
 	</head>
 		
 
@@ -168,6 +169,7 @@
 	
 				$(document).ready(function(){
 					//
+					printClock(); //타임작동하기
 				});
 			</script>
 

@@ -106,10 +106,10 @@
         
     </sf:form>
 
-    <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:location.href='/noticeList'">목록으로</button>
+    <button type="button" class="button btn btn-default pull-right btn-gr btn-sm" onclick="javascript:location.href='/noticeList'">목록으로</button>
     <!-- <button type="submit" id="saveText" class="button btn btn-default pull-right btn-gr">등록</button> -->
-    <button type="reset" id="resetBtn" class="button btn btn-default pull-right btn-gr">다시작성</button>
-    <button type="button" id="saveText" class="button btn btn-default pull-right btn-gr" onclick="javascript:seve()">등록</button>
+    <button type="reset" id="resetBtn" class="button btn btn-default pull-right btn-gr btn-sm">다시작성</button>
+    <button type="button" id="saveText" class="button btn btn-default pull-right btn-gr btn-sm" onclick="javascript:seve()">등록</button>
     
     <br>
     <br>

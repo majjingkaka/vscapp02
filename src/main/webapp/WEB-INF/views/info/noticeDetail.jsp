@@ -63,7 +63,7 @@
     </div>
 
     
-    <div class="card">
+    <div class="card" style="font-size: 15px;">
         <div class="card-body">
             
             <div class="form-group">
@@ -103,11 +103,11 @@
     
 
 
-    <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:location.href='/noticeList'">목록으로</button>
+    <button type="button" class="button btn btn-default pull-right btn-gr btn-sm" onclick="javascript:location.href='/noticeList'">목록으로</button>
             
     <security:authorize access="hasRole('ADMIN')">
-        <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:deleteAndModify('d');">삭제</button>
-        <button type="button" class="button btn btn-default pull-right btn-gr" onclick="javascript:deleteAndModify('m');">수정</button>
+        <button type="button" class="button btn btn-default pull-right btn-gr btn-sm" onclick="javascript:deleteAndModify('d');">삭제</button>
+        <button type="button" class="button btn btn-default pull-right btn-gr btn-sm" onclick="javascript:deleteAndModify('m');">수정</button>
     </security:authorize>
     <br><br>
 

@@ -22,7 +22,7 @@
   </div>
 
   <div class="bd-example bd-example-tabs">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <ul class="nav nav-tabs" id="myTab" role="tablist" style="font-size: 15px;">
       <li class="nav-item" role="presentation">
         <!-- <a class="nav-link active" data-toggle="tab" href="#studyroom">공부방</a> -->
         <!-- <a class="nav-link active" data-toggle="tab" href="#qwe">QWE</a> -->

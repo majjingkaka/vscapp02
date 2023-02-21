@@ -23,7 +23,7 @@
   </div>
 
   <div class="bd-example bd-example-tabs">
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <ul class="nav nav-tabs" id="myTab" role="tablist" style="font-size: 15px;">
       <li class="nav-item" role="presentation">
         <button class="nav-link active" id="studyroom-tab" data-toggle="tab" data-target="#studyroom" type="button" role="tab" aria-controls="studyroom" aria-selected="true">스크래치와 언플러그드</button>
       </li>
@@ -35,7 +35,7 @@
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="studyroom" role="tabpanel" aria-labelledby="home-tab">
         <!-- studyroom... -->
-        <div class="card">
+        <div class="card" style="font-size: 15px;">
           <div class="card-body">
               <h2>스크래치와 언플러그드</h2>
 
@@ -182,7 +182,7 @@
       <div class="tab-pane fade" id="standby" role="tabpanel" aria-labelledby="profile-tab">
         <!-- <p>StandBy...</p> -->
 
-        <div class="card">
+        <div class="card" style="font-size: 15px;">
           <div class="card-body">
               <h2>로봇과 프로그램</h2>
 

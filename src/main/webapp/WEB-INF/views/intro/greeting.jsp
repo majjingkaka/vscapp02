@@ -18,7 +18,7 @@
   </div>
 
 
-  <div class="card">
+  <div class="card" style="font-size: 15px;">
     <div class="card-body">
       안녕하세요. 원장 박두철입니다.<br>
       SALT(솔트)코딩이 내포에서 첫 출발을 하게 되었습니다.<br>
