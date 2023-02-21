@@ -11,7 +11,7 @@
 
 <div class="container-fluid p-3">
   <!-- <H1>갤러리</H1> -->
-  <div class="card">
+  <div class="card" style="font-size: 15px;">
     <div class="card-body">
         <!-- <h2>홈</h2> -->
 
