@@ -116,7 +116,7 @@
 		<!-- <script src="${pageContext.request.contextPath}/dist/js/pages/dashboard.js"></script> -->
 		<script src="${pageContext.request.contextPath}/plugins/jquery-validation/jquery.validate.min.js"></script>
 
-		<script src="${pageContext.request.contextPath}/js/datetime.js"></script>
+		<script src="${pageContext.request.contextPath}/js/dateTime.js"></script>
 	</head>
 		
 
