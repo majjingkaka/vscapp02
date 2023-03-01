@@ -39,16 +39,6 @@
 		<meta name="naver-site-verification" content="eecb87d08c971207921a7be31cd118307c894393" />
 		<meta name="google-site-verification" content="Nt1GVEx23BW0LRxglzDZre9CPqjxFBxAKRoeR95CPY0" />
 		
-		<meta property="og:type" content="website">
-		<meta property="og:title" content="솔트코딩">
-		<meta property="og:site_name" content="솔트코딩">
-		<meta property="og:description" content="스크래치 로봇 블록코딩 초등코딩">
-		<meta property="og:url" content="http://saltcoding.com">
-		<meta property="og:image" content="${pageContext.request.contextPath}/images/home/kids-1093758_1920.jpg">
-		<meta property="og:image:width" content="1200">
-		<meta property="og:image:height" content="630">
-		
-		
 		<meta name="twitter:card" content="summary">
 		<meta name="twitter:title" content="솔트코딩">
 		<meta name="twitter:site" content="솔트코딩">
