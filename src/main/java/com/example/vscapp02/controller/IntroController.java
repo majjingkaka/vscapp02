@@ -15,35 +15,35 @@ public class IntroController{
     @RequestMapping(path = "/greeting", method = RequestMethod.GET)
     public String greeting(HttpServletRequest request, Model model){
         logger.debug("### MainController greeting call...");
-        model.addAttribute("noticeHeaderList", "11");
+        model.addAttribute("pageName", "greeting");
         return "intro/greeting";
     }
 
     @RequestMapping(path = "/coding", method = RequestMethod.GET)
     public String coding(HttpServletRequest request, Model model){
         logger.debug("### MainController coding call...");
-        model.addAttribute("noticeHeaderList", "11");
+        model.addAttribute("pageName", "coding");
         return "intro/coding";
     }
 
     @RequestMapping(path = "/education", method = RequestMethod.GET)
     public String education(HttpServletRequest request, Model model){
         logger.debug("### MainController education call...");
-        model.addAttribute("noticeHeaderList", "11");
+        model.addAttribute("pageName", "education");
         return "intro/education";
     }
 
     @RequestMapping(path = "/classplan", method = RequestMethod.GET)
     public String classplan(HttpServletRequest request, Model model){
         logger.debug("### MainController classplan call...");
-        model.addAttribute("noticeHeaderList", "11");
+        model.addAttribute("pageName", "classplan");
         return "intro/classplan";
     }
 
     @RequestMapping(path = "/Entreprise", method = RequestMethod.GET)
     public String Entreprise(HttpServletRequest request, Model model){
         logger.debug("### MainController Entreprise call...");
-        model.addAttribute("noticeHeaderList", "11");
+        model.addAttribute("pageName", "Entreprise");
         return "intro/Entreprise";
     }
 }

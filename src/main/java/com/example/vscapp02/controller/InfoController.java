@@ -22,14 +22,14 @@ public class InfoController{
     @RequestMapping(path = "/question", method = RequestMethod.GET)
     public String question(HttpServletRequest request, Model model){
         logger.debug("### InfoController question call...");
-        model.addAttribute("noticeHeaderList", "11");
+        model.addAttribute("pageName", "question");
         return "info/question";
     }
 
     @RequestMapping(path = "/gallery", method = RequestMethod.GET)
     public String gallery(HttpServletRequest request, Model model){
         logger.debug("### InfoController gallery call...");
-        model.addAttribute("noticeHeaderList", "11");
+        model.addAttribute("pageName", "gallery");
         return "info/gallery";
     }
 }

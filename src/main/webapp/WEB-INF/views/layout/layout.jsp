@@ -22,7 +22,7 @@
 
 		<meta name="_csrf" content="${_csrf.token}"/>
 		<meta name="_csrf_header" content="${_csrf.headerName}"/>
-
+		
 		<link rel="icon" href="${pageContext.request.contextPath}/images/home/SaltCodingLogo.png" type="image/x-icon" sizes="16x16">
 		<link rel="icon" href="${pageContext.request.contextPath}/images/home/SaltCodingLogo.png" type="image/x-icon" sizes="32x32">
 		<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/home/SaltCodingLogo.png" type="image/x-icon" />
@@ -46,7 +46,7 @@
 		<meta name="twitter:image" content="${pageContext.request.contextPath}/images/home/kids-1093758_1920.jpg">
 		<meta name="twitter:domain" content="사이트 명">
 
-		<title><t:getAsString name="title" /></title>
+		<title>솔트코딩 <t:getAsString name="title" /></title>
 	  
 		<!-- Google Font: Source Sans Pro -->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -113,6 +113,7 @@
 		
 		
 		<body class="hold-transition sidebar-mini layout-fixed">
+			
 			<section class="content">
 				<div id="wrapper" class="wrapper">
 				
@@ -150,7 +151,11 @@
 				$(function () {
 					var token = $("meta[name='_csrf']").attr("content");
 					var header = $("meta[name='_csrf_header']").attr("content");
-	
+					var pageName = "${pageName}";
+					console.log('pageName:'+pageName);
+					var desc = "스크래치 로봇 블록코딩 초등코딩 "+pageName;
+					$("meta[name=description]").attr("content", desc);
+
 					$(document).ajaxSend(function(e, xhr, options) {
 						//console.log('ajaxSend');
 						xhr.setRequestHeader(header, token);
@@ -161,7 +166,11 @@
 					//
 					printClock(); //타임작동하기
 				});
-			</script>
 
+				
+				
+
+
+			</script>
 		</body>
 </html>

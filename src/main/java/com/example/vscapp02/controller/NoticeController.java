@@ -96,7 +96,8 @@ public class NoticeController {
         pagerInfo.setItemCountTotal(noticeTotalCount);
 
         List<Notice> noticeList = noticeMapper.selectNotices(notice, pagerInfo);
-        
+
+        model.addAttribute("pageName", "noticeList");
         model.addAttribute("noticeHeaderList", noticeHeaderList);
         model.addAttribute("noticeList", noticeList);
         model.addAttribute("pagerInfo", pagerInfo);
@@ -115,6 +116,7 @@ public class NoticeController {
             notice = noticeMapper.selectNotice(notice);
         }
 
+        model.addAttribute("pageName", "noticeRegForm");
         model.addAttribute("noticeDetail", notice);
         return "info/noticeRegForm";
     }
@@ -204,6 +206,7 @@ public class NoticeController {
         String unescapeHtml4Content = StringEscapeUtils.unescapeHtml4(noticeDetail.getContent());
         noticeDetail.setContent(unescapeHtml4Content);
 
+        model.addAttribute("pageName", "noticeDetail");
         model.addAttribute("noticeDetail", noticeDetail);
         model.addAttribute("imgPath", "/" + pathType);
 
