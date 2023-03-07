@@ -15,7 +15,7 @@ public class MainController{
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String main(HttpServletRequest request, Model model){
         logger.debug("### MainController main call...");
-        model.addAttribute("noticeHeaderList", "11");
+        model.addAttribute("pageName", "");
 
         return "home";
     }
@@ -38,8 +38,9 @@ public class MainController{
     }
 
     @RequestMapping(path = "home")
-    public String home() {
+    public String home(Model model) {
         logger.debug("home...");
+        model.addAttribute("pageName", "home");
         return "home";
     }
 
@@ -59,8 +60,9 @@ public class MainController{
     }
 
     @RequestMapping(path = "use")
-    public String use() {
+    public String use(Model model) {
         logger.debug("use...");
+        model.addAttribute("pageName", "use");
         return "terms/use";
     }
 }

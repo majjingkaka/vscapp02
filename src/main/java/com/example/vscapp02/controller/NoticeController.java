@@ -60,7 +60,8 @@ public class NoticeController {
                              @RequestParam(defaultValue = "")String searchContent,
                              @RequestParam(defaultValue = "1")int page){
         logger.debug("### NoticeController noticeList call...");
-        
+        model.addAttribute("pageName", "noticeList");
+
         if(principal != null){
             if(!principal.getName().isEmpty() && principal.getName().equals("admin")){
                 notice.setContentOpen(null);
@@ -97,7 +98,6 @@ public class NoticeController {
 
         List<Notice> noticeList = noticeMapper.selectNotices(notice, pagerInfo);
 
-        model.addAttribute("pageName", "noticeList");
         model.addAttribute("noticeHeaderList", noticeHeaderList);
         model.addAttribute("noticeList", noticeList);
         model.addAttribute("pagerInfo", pagerInfo);

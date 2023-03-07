@@ -38,7 +38,7 @@ public class ExceptionController {
     // @RequestMapping(path = "/test", method = RequestMethod.GET)
     // public String notice(HttpServletRequest request, Model model){
     //     logger.debug("### MainController notice call...");
-    //     model.addAttribute("noticeHeaderList", "11");
+    //     model.addAttribute("pageName", "test");
     //     return "info/notice";
     // }
 }

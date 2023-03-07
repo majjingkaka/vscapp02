@@ -15,7 +15,7 @@ public class InfoController{
     // @RequestMapping(path = "/notice", method = RequestMethod.GET)
     // public String notice(HttpServletRequest request, Model model){
     //     logger.debug("### InfoController notice call...");
-    //     model.addAttribute("noticeHeaderList", "11");
+    //     model.addAttribute("pageName", "notice");
     //     return "info/notice";
     // }
 
