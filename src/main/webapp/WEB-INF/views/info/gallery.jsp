@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!-- <h1>gallery</h1> -->
+<title name="title">솔트코딩 gallery</title>
+<meta name="description" content="스크래치 로봇 블록코딩 초등코딩 gallery">
 
 <style>
     .blockquote{

@@ -14,7 +14,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<meta name="subject" content="솔트코딩">
-		<meta name="description" content="스크래치 로봇 블록코딩 초등코딩">
+		<!-- <meta name="description" content="스크래치 로봇 블록코딩 초등코딩"> -->
 		<meta name="copyright" content="솔트코딩">
 		<meta name="title" content="솔트코딩">
 		<meta name="apple-mobile-web-app-title" content="솔트코딩">
@@ -47,7 +47,7 @@
 		<meta name="twitter:domain" content="사이트 명">
 
 		<!-- <title>솔트코딩 <t:getAsString name="title" /></title> -->
-		<title name="title">솔트코딩</title>
+		<!-- <title name="title">솔트코딩</title> -->
 	  
 		<!-- Google Font: Source Sans Pro -->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -152,11 +152,11 @@
 				$(function () {
 					var token = $("meta[name='_csrf']").attr("content");
 					var header = $("meta[name='_csrf_header']").attr("content");
-					var pageName = "${pageName}";
-					console.log('pageName:'+pageName);
-					var desc = "스크래치 로봇 블록코딩 초등코딩 "+pageName;
-					$("meta[name=description]").attr("content", desc);
-					$("title[name=title]").html("솔트코딩 "+pageName);
+					//var pageName = "${pageName}";
+					//console.log('pageName:'+pageName);
+					//var desc = "스크래치 로봇 블록코딩 초등코딩 "+pageName;
+					//$("meta[name=description]").attr("content", desc);
+					//$("title[name=title]").html("솔트코딩 "+pageName);
 
 					$(document).ajaxSend(function(e, xhr, options) {
 						//console.log('ajaxSend');

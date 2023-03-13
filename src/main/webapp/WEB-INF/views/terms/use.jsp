@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<title name="title">솔트코딩 use</title>
+<meta name="description" content="스크래치 로봇 블록코딩 초등코딩 use">
+
 <div class="container-fluid p-3" >
     <div class="card">
         <div class="card-body">

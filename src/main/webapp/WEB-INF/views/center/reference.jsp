@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<title name="title">솔트코딩 reference</title>
+<meta name="description" content="스크래치 로봇 블록코딩 초등코딩 reference">
 
 <style>
   .blockquote{

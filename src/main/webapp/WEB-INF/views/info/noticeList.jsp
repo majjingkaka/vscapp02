@@ -2,6 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<title name="title">솔트코딩 noticeList</title>
+<meta name="description" content="스크래치 로봇 블록코딩 초등코딩 noticeList">
 
 <!-- <h1>notice</h1>
 <div class="p-3"> 

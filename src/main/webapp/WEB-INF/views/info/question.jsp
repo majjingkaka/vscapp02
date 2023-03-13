@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<title name="title">솔트코딩 question</title>
+<meta name="description" content="스크래치 로봇 블록코딩 초등코딩 question">
 
 <style>
     .blockquote{

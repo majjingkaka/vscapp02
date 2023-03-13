@@ -2,6 +2,8 @@
 <!-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> -->
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form"%>
 <!-- <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> -->
+<title name="title">솔트코딩 noticeRegForm</title>
+<meta name="description" content="스크래치 로봇 블록코딩 초등코딩 noticeRegForm">
 
 <style>
     .ck-editor__editable { height: 400px; }
