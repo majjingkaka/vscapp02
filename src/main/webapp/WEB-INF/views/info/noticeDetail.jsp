@@ -6,6 +6,7 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <title name="title">솔트코딩 noticeDetail</title>
 <meta name="description" content="스크래치 로봇 블록코딩 초등코딩 noticeDetail">
+<meta name="title" content="솔트코딩 noticeDetail">
 
 <!-- <%
     pageContext.setAttribute("CR", "\r");

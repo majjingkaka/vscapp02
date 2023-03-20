@@ -16,7 +16,7 @@
 		<meta name="subject" content="솔트코딩">
 		<!-- <meta name="description" content="스크래치 로봇 블록코딩 초등코딩"> -->
 		<meta name="copyright" content="솔트코딩">
-		<meta name="title" content="솔트코딩">
+		<!-- <meta name="title" content="솔트코딩"> -->
 		<meta name="apple-mobile-web-app-title" content="솔트코딩">
 		<meta name="application-name" content="솔트코딩">
 

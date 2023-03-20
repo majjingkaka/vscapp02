@@ -4,6 +4,7 @@
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <title name="title">솔트코딩 noticeList</title>
 <meta name="description" content="스크래치 로봇 블록코딩 초등코딩 noticeList">
+<meta name="title" content="솔트코딩 noticeList">
 
 <!-- <h1>notice</h1>
 <div class="p-3"> 
